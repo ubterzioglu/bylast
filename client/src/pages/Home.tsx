@@ -134,13 +134,18 @@ export default function Home() {
       {/* Hero Section */}
       <section 
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://private-us-east-1.manuscdn.com/sessionFile/Tw8dNyn4ol89j1vA5YKIl5/sandbox/Zhl01TRnTJFidlWLPjMJJi-img-1_1770937916000_na1fn_aGVyby1ib3hpbmctYmc.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVHc4ZE55bjRvbDg5ajF2QTVZS0lsNS9zYW5kYm94L1pobDAxVFJuVEpGaWRsV0xQak1KSmktaW1nLTFfMTc3MDkzNzkxNjAwMF9uYTFmbl9hR1Z5YnkxaWIzaHBibWN0WW1jLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=J-PZMC9LBv~U9Bteoysd7cjw3Hg3~On0qUsAmrAEqnRQ5m6UZCtKvQI4DotM9eckzE40F4h0bfnLOeNdhrqdwS7V~0guKrWU4zQUB8Mbs7ixJ-qE~yhgcBTbVbrPKl5qoTsIOhrEPx~LUJIOoBIOkN3Oec09zmUmpgcx9~UUBpK8lgvcOw7FhDaYr1CuG0nQFpyA7l9~4rRezTmAgDFtF22rfDHXQz4FV5NTaYxex3qFdfMnsPDj2T9jAwK5NMRsjuFXywzmWjR0ysRWGj7hJc2~4xhtOl2IF9N8lvRMa9K4MM5wUb5i9ZAv42VkXullMZwYmhPxCeDcY8~-wdQFIQ__')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/DNhDPATSdkTrEFxT.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background"></div>
         <div className="container relative z-10 text-center px-4 pt-20">
           <div className="max-w-4xl mx-auto">
             <div className="inline-block mb-6 px-6 py-2 border-2 border-primary bg-primary/10">
