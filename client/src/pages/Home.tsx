@@ -231,7 +231,7 @@ export default function Home() {
       </section>
 
       {/* Kısa Tanıtım */}
-      <section className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
+      <section id="hakkimda" className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto space-y-6 text-lg text-muted-foreground">
             <p>
