@@ -212,7 +212,7 @@ export default function Home() {
           <h1 className="text-6xl md:text-7xl font-black mb-6 leading-tight tracking-tighter">
             DİSİPLİN<br />
             KARAKTER<br />
-            GÜÇÜ
+            GÜÇ
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
             29 yıllık spor tecrübesi ve milli sporculuk altyapısıyla boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir özel ders.
