@@ -8,7 +8,7 @@ Design Philosophy: Brutalism + Martial Arts Aesthetic
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { MapPin, Instagram, Linkedin, Youtube, Phone, Star, Check, X } from "lucide-react";
+import { MapPin, Instagram, Linkedin, Youtube, Phone, Star, Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Carousel from "@/components/Carousel";
 
@@ -158,33 +158,7 @@ export default function Home() {
 
   return (
     <div className="bg-background text-foreground">
-      {/* Popup Modal */}
-      {showPopup && (
-        <div className="fixed inset-0 bg-black/80 z-40 flex items-center justify-center p-4">
-          <Card className="bg-background border-2 border-primary max-w-md p-8 relative">
-            <button
-              onClick={() => setShowPopup(false)}
-              className="absolute top-4 right-4 text-muted-foreground hover:text-primary"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            <h3 className="text-2xl font-bold mb-4 text-primary">Özel ders hakkında bilgi almak ister misiniz?</h3>
-            <p className="text-muted-foreground mb-6">
-              Boks, kickboks ve fonksiyonel antrenman dersleri hakkında detay ve fiyat bilgisi için hemen iletişime geçebilirsiniz.
-            </p>
-            <div className="flex gap-4">
-              <a href={whatsappLink} className="flex-1">
-                <Button className="w-full bg-green-600 hover:bg-green-700">
-                  WhatsApp'tan yaz
-                </Button>
-              </a>
-              <Button onClick={() => setShowPopup(false)} className="flex-1 bg-primary">
-                Fiyat bilgisi al
-              </Button>
-            </div>
-          </Card>
-        </div>
-      )}
+
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -377,7 +351,7 @@ export default function Home() {
       </section>
 
       {/* Hızlı Bilgi Formu */}
-      <section className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
+      <section id="hizli-bilgi" className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold mb-4 text-center">Bilgi ve fiyat almak için bırakın, sizi arayalım.</h2>
