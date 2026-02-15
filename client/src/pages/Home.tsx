@@ -209,6 +209,7 @@ export default function Home() {
             <a href="#hizmetler" className="hover:text-primary transition-colors duration-200">HİZMETLER</a>
             <a href="#neden" className="hover:text-primary transition-colors duration-200">NEDEN BEN</a>
             <a href="#referanslar" className="hover:text-primary transition-colors duration-200">REFERANSLAR</a>
+            <a href="#sss" className="hover:text-primary transition-colors duration-200">SSS</a>
             <a href="#iletisim" className="hover:text-primary transition-colors duration-200">İLETİŞİM</a>
           </div>
           <Button 
@@ -434,7 +435,7 @@ export default function Home() {
       </section>
 
       {/* SSS */}
-      <section className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
+      <section id="sss" className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">SIKÇA SORULAN SORULAR</h2>
           <div className="max-w-4xl mx-auto space-y-6">
