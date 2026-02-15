@@ -468,7 +468,7 @@ export default function Home() {
       <section id="iletisim" className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">HEMEN BAŞLAYALIM</h2>
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto mb-16">
+          <div className="max-w-2xl mx-auto">
             {/* İletişim Bilgileri */}
             <div className="space-y-8">
               <div className="bg-background p-8 border-2 border-border">
@@ -519,52 +519,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Form */}
-            <div className="bg-background p-8 border-2 border-border">
-              <form className="space-y-6">
-                <div>
-                  <input 
-                    type="text"
-                    placeholder="Adınız Soyadınız"
-                    className="w-full px-4 py-3 bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <input 
-                    type="tel"
-                    placeholder="05XX XXX XX XX"
-                    className="w-full px-4 py-3 bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <input 
-                    type="email"
-                    placeholder="ornek@email.com"
-                    className="w-full px-4 py-3 bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <select className="w-full px-4 py-3 bg-card border border-border text-foreground focus:outline-none focus:border-primary">
-                    <option>Seçiniz...</option>
-                    <option>Boks Özel Ders</option>
-                    <option>Kick Boks</option>
-                    <option>Fitness</option>
-                    <option>Grup Dersleri</option>
-                    <option>Diğer</option>
-                  </select>
-                </div>
-                <div>
-                  <textarea 
-                    placeholder="Hedeflerinizi ve beklentilerinizi paylaşın..."
-                    rows={4}
-                    className="w-full px-4 py-3 bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
-                  ></textarea>
-                </div>
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3 font-bold text-lg">
-                  MESAJ GÖNDER
-                </Button>
-              </form>
-            </div>
+
           </div>
         </div>
       </section>
