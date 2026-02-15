@@ -8,12 +8,13 @@ Design Philosophy: Brutalism + Martial Arts Aesthetic
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { MapPin, Instagram, Linkedin, Youtube, Phone, Star, Check } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { MapPin, Instagram, Linkedin, Youtube, Phone, Star, Check, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import Carousel from "@/components/Carousel";
 
 export default function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -31,12 +32,21 @@ export default function Home() {
       observerRef.current?.observe(el);
     });
 
-    return () => observerRef.current?.disconnect();
+    // Show popup after 3 seconds
+    const timer = setTimeout(() => setShowPopup(true), 3000);
+
+    return () => {
+      observerRef.current?.disconnect();
+      clearTimeout(timer);
+    };
   }, []);
 
   const scrollToContact = () => {
     document.getElementById("iletisim")?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const whatsappMessage = encodeURIComponent("Merhaba, web siteniz üzerinden ulaşıyorum. Özel dersler ve fiyat bilgisi hakkında bilgi almak istiyorum.");
+  const whatsappLink = `https://wa.me/905XX5XXXXXX?text=${whatsappMessage}`;
 
   // Placeholder testimonials for carousel
   const testimonials = [
@@ -66,133 +76,116 @@ export default function Home() {
     },
   ];
 
+  const testimonialItems = testimonials.map((t) => (
+    <div key={t.name} className="bg-background p-8 border-2 border-border">
+      <div className="flex gap-1 mb-4">
+        {Array.from({ length: t.rating }).map((_, i) => (
+          <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+        ))}
+      </div>
+      <p className="text-lg mb-4 text-muted-foreground">"{t.text}"</p>
+      <p className="font-bold">{t.name}</p>
+      <p className="text-sm text-muted-foreground">{t.role}</p>
+    </div>
+  ));
+
   const services = [
-    {
-      title: "Boks Özel Ders",
-      description: "Birebir antrenman",
-      details: [
-        "Temel ve ileri seviye boks teknikleri",
-        "Pad ve torba çalışmaları",
-        "Refleks ve koordinasyon geliştirme",
-        "Fonksiyonel kuvvet antrenmanı",
-        "Hedefe uygun beslenme yönlendirmesi"
-      ]
-    },
-    {
-      title: "Kick Boks Eğitimi",
-      description: "Yumruk ve tekme kombinasyonları",
-      details: [
-        "Temel yumruk ve tekme teknikleri",
-        "Kombinasyon çalışmaları",
-        "Hız ve patlayıcı kuvvet antrenmanları",
-        "Kardiyö ve dayanıklılık geliştirme"
-      ]
-    },
-    {
-      title: "Fitness & Fonksiyonel Antrenman",
-      description: "Genel fiziksel gelişim",
-      details: [
-        "Yağ yakımı",
-        "Kas kazanımı",
-        "Sıkılaşma",
-        "Postür düzeltme"
-      ]
-    },
-    {
-      title: "Kilo Verme Programı",
-      description: "Hızlı ve etkili sonuç",
-      details: [
-        "Cardio temelli antrenman",
-        "Interval çalışmalar",
-        "Metabolizma hızlandırıcı egzersizler",
-        "Beslenme yönlendirmesi"
-      ]
-    },
-    {
-      title: "Çocuk Boks Eğitimi",
-      description: "5-10 yaş grup dersleri",
-      details: [
-        "Disiplin kazandırma",
-        "Özgüven geliştirme",
-        "Enerjiyi doğru yönlendirme",
-        "Spor alışkanlığı kazandırma"
-      ]
-    },
-    {
-      title: "Yetişkin Grup Dersleri",
-      description: "16+ yaş grup antrenmanları",
-      details: [
-        "Motivasyonu artıran ortam",
-        "Tempolu çalışma",
-        "Sosyal bağlantı",
-        "Disiplinli antrenman sistemi"
-      ]
-    }
+    { title: "Boks", icon: "🥊" },
+    { title: "Kickboks", icon: "🥋" },
+    { title: "Fonksiyonel Antrenman", icon: "💪" },
+    { title: "Fitness", icon: "🏋️" },
+    { title: "Kondisyon Geliştirme", icon: "⚡" },
+    { title: "Yağ Yakımı Programları", icon: "🔥" },
   ];
 
-  const whyChoose = [
-    { title: "Gerçek Sporcu Geçmişi", desc: "Milli takım seviyesinde yarışmış bir sporcu" },
-    { title: "Kişiye Özel Sistem", desc: "Her öğrenci için ayrı planlama yapılır" },
-    { title: "Disiplin + Motivasyon Dengesi", desc: "Sert değil, disiplinli. Yönlendirme esastır" },
-    { title: "Sonuç Odaklı Yaklaşım", desc: "Gözle görülür değişim sağlamak amaçtır" },
-    { title: "Her Seviyeye Uygun", desc: "Başlangıçtan müsabık seviyeye kadar" },
-    { title: "Güvenli ve Kontrollü", desc: "Teknik eğitim önceliklidir" }
+  const goals = [
+    "Yağ yakımı",
+    "Kondisyon artışı",
+    "Güç ve dayanıklılık",
+    "Özgüven",
+    "Disiplinli yaşam alışkanlığı",
+  ];
+
+  const whoFor = [
+    "Kilo vermek isteyenler",
+    "Kondisyonunu artırmak isteyenler",
+    "Sporla disiplin kazanmak isteyen gençler",
+    "Güç ve dayanıklılığını geliştirmek isteyenler",
+    "Profesyonel antrenman sistemi arayanlar",
+  ];
+
+  const experience = [
+    "29 yıllık spor tecrübesi",
+    "Milli sporcu altyapısı",
+    "Disiplinli ve sistemli antrenman yaklaşımı",
+    "Hedef ve sonuç odaklı çalışma modeli",
   ];
 
   const faqs = [
     {
       q: "Antrenmanlar nasıl geçer?",
-      a: "Antrenmanlar kişiye özel planlanır. Teknik boks eğitimi, kondisyon çalışmaları, cardio ve fonksiyonel antrenmanlar birlikte uygulanır."
+      a: "Antrenmanlar kişiye özel planlanır. Teknik boks eğitimi, kondisyon çalışmaları, cardio ve fonksiyonel antrenmanlar birlikte uygulanır.",
     },
     {
       q: "Dersler her seviyeye uygun mu?",
-      a: "Evet. Hiç spor yapmamış kişilerden ileri seviye sporculara kadar herkes için özel program hazırlanır."
+      a: "Evet. Hiç spor yapmamış kişilerden ileri seviye sporculara kadar herkes için özel program hazırlanır.",
     },
     {
       q: "Beslenme programı veriliyor mu?",
-      a: "Evet. Hedefe göre (kilo verme, kilo alma, performans artışı) beslenme yönlendirmesi yapılır."
+      a: "Evet. Hedefe göre (kilo verme, kilo alma, performans artışı) beslenme yönlendirmesi yapılır.",
     },
     {
       q: "Yarışmalara hazırlanabilir miyim?",
-      a: "Evet. Müsabık sporcular için özel disiplinli antrenman programı uygulanır."
+      a: "Evet. Müsabık sporcular için özel disiplinli antrenman programı uygulanır.",
     },
     {
       q: "Hangi yaş aralığı kabul ediliyor?",
-      a: "4 – 70 yaş arası öğrencilerimiz bulunmaktadır. 5 yaşında öğrencimiz de var, 60 yaşında öğrencimiz de. Her yaşa uygun program uygulanır."
+      a: "4 – 70 yaş arası öğrencilerimiz bulunmaktadır. 5 yaşında öğrencimiz de var, 60 yaşında öğrencimiz de. Her yaşa uygun program uygulanır.",
     },
     {
       q: "Kadınlar için uygun mu?",
-      a: "Evet. Kadın öğrenciler için özel program uygulanır. Boks aynı zamanda güçlü bir cardio ve sıkılaşma antrenmanıdır."
+      a: "Evet. Kadın öğrenciler için özel program uygulanır. Boks aynı zamanda güçlü bir cardio ve sıkılaşma antrenmanıdır.",
     },
     {
       q: "Daha önce spor yapmadım, başlayabilir miyim?",
-      a: "Kesinlikle evet. Sıfırdan başlayan birçok öğrencimiz bulunmaktadır. Program seviyeye göre başlatılır."
+      a: "Kesinlikle evet. Sıfırdan başlayan birçok öğrencimiz bulunmaktadır. Program seviyeye göre başlatılır.",
     },
     {
       q: "Sakatlanma riski var mı?",
-      a: "Kontrollü ve disiplinli çalışma sayesinde risk minimuma indirilir. Teknik eğitim önceliklidir."
-    }
+      a: "Kontrollü ve disiplinli çalışma sayesinde risk minimuma indirilir. Teknik eğitim önceliklidir.",
+    },
   ];
 
-  const testimonialItems = testimonials.map((testimonial, index) => (
-    <div key={index} className="px-4 py-8 md:px-8">
-      <Card className="p-8 bg-background border-2 border-border h-full">
-        <div className="flex gap-1 mb-4">
-          {[...Array(testimonial.rating)].map((_, i) => (
-            <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-          ))}
-        </div>
-        <p className="text-muted-foreground mb-6 italic">"{testimonial.text}"</p>
-        <div className="border-t border-border pt-4">
-          <p className="font-bold">{testimonial.name}</p>
-          <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-        </div>
-      </Card>
-    </div>
-  ));
-
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="bg-background text-foreground">
+      {/* Popup Modal */}
+      {showPopup && (
+        <div className="fixed inset-0 bg-black/80 z-40 flex items-center justify-center p-4">
+          <Card className="bg-background border-2 border-primary max-w-md p-8 relative">
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-4 right-4 text-muted-foreground hover:text-primary"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <h3 className="text-2xl font-bold mb-4 text-primary">Özel ders hakkında bilgi almak ister misiniz?</h3>
+            <p className="text-muted-foreground mb-6">
+              Boks, kickboks ve fonksiyonel antrenman dersleri hakkında detay ve fiyat bilgisi için hemen iletişime geçebilirsiniz.
+            </p>
+            <div className="flex gap-4">
+              <a href={whatsappLink} className="flex-1">
+                <Button className="w-full bg-green-600 hover:bg-green-700">
+                  WhatsApp'tan yaz
+                </Button>
+              </a>
+              <Button onClick={() => setShowPopup(false)} className="flex-1 bg-primary">
+                Fiyat bilgisi al
+              </Button>
+            </div>
+          </Card>
+        </div>
+      )}
+
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -207,227 +200,161 @@ export default function Home() {
           <div className="hidden md:flex items-center gap-6">
             <a href="#hakkimda" className="hover:text-primary transition-colors duration-200">HAKKIMDA</a>
             <a href="#hizmetler" className="hover:text-primary transition-colors duration-200">HİZMETLER</a>
-            <a href="#neden" className="hover:text-primary transition-colors duration-200">NEDEN BEN</a>
-            <a href="#referanslar" className="hover:text-primary transition-colors duration-200">REFERANSLAR</a>
+            <a href="#amaç" className="hover:text-primary transition-colors duration-200">AMAÇ</a>
+            <a href="#kimler" className="hover:text-primary transition-colors duration-200">KİMLER İÇİN</a>
             <a href="#sss" className="hover:text-primary transition-colors duration-200">SSS</a>
             <a href="#iletisim" className="hover:text-primary transition-colors duration-200">İLETİŞİM</a>
           </div>
-          <Button 
-            onClick={scrollToContact}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 hover:scale-105"
-          >
-            İLETİŞİME GEÇ
-          </Button>
+          <a href={whatsappLink}>
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 hover:scale-105">
+              Fiyat bilgisi al
+            </Button>
+          </a>
         </div>
       </nav>
 
       {/* Hero Section */}
       <section 
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: 'url(https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/boxing-ring-video-bg.mp4)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
       >
-        {/* Video Background */}
         <video
           autoPlay
           muted
           loop
-          playsInline
           className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/DNhDPATSdkTrEFxT.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background"></div>
-        <div className="container relative z-10 text-center px-4 pt-20">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-block mb-6 px-6 py-2 border-2 border-primary bg-primary/10">
-              <span className="text-primary text-sm font-bold tracking-widest">B.Y. FIGHT CLUB ACADEMY</span>
-            </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-              KENDİNİN EN GÜÇLÜ VERSİYONU OL
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-4">
-              Kişiye Özel Boks, Kick Boks ve Fonksiyonel Antrenman Programları
-            </p>
-            <p className="text-lg md:text-xl text-gray-300 mb-8">
-              4 – 70 Yaş Arası Profesyonel Eğitim
-            </p>
-            <p className="text-base md:text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
-              Türkiye şampiyonluğu ve milli takım geçmişi olan antrenör Baki Yılmaz ile hedefe odaklı, disiplinli ve sonuç garantili antrenman sistemi.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                onClick={scrollToContact}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-bold"
-              >
-                ÖZEL DERS İÇİN İLETİŞİME GEÇ
+          src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/boxing-ring-video.mp4"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+        
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+          <div className="mb-6 inline-block border-2 border-primary px-4 py-2">
+            <span className="text-primary font-bold tracking-wider">B.Y. FIGHT CLUB ACADEMY</span>
+          </div>
+          <h1 className="text-6xl md:text-7xl font-black mb-6 leading-tight tracking-tighter">
+            DİSİPLİN.<br />
+            KARAKTER.<br />
+            GÜÇÜ.
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            29 yıllık spor tecrübesi ve milli sporculuk altyapısıyla boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir özel ders.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button onClick={scrollToContact} className="bg-primary text-primary-foreground hover:bg-primary/90 py-3 px-8 text-lg font-bold">
+              Hemen iletişime geç
+            </Button>
+            <a href={whatsappLink}>
+              <Button className="bg-transparent border-2 border-primary text-primary hover:bg-primary/10 py-3 px-8 text-lg font-bold w-full">
+                Fiyat bilgisi al
               </Button>
-              <Button 
-                variant="outline"
-                onClick={scrollToContact}
-                className="border-2 border-primary text-primary hover:bg-primary/10 px-8 py-6 text-lg font-bold"
-              >
-                ÜCRETSİZ ÖN GÖRÜŞME
-              </Button>
-            </div>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Özel Ders Avantajları */}
-      <section className="py-20 bg-background border-t-4 border-primary animate-on-scroll">
+      {/* Kısa Tanıtım */}
+      <section className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-              ÖZEL DERS İLE HIZLI VE NET SONUÇ
-            </h2>
-            <p className="text-lg text-muted-foreground mb-12 text-center">
-              Hedefin kilo vermek, kas yapmak, teknik öğrenmek ya da müsabık olmak olabilir. Her öğrenci için program farklıdır.
+          <div className="max-w-3xl mx-auto space-y-6 text-lg text-muted-foreground">
+            <p>
+              29 yıllık spor tecrübesi ve milli sporculuk altyapısıyla; boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir, hedef odaklı özel dersler veriyorum.
             </p>
-            <div className="grid md:grid-cols-2 gap-8">
-              {[
-                "Teknik hatalar anında düzeltilir",
-                "Kişisel tempo belirlenir",
-                "Beslenme yönlendirmesi yapılır",
-                "Gelişim birebir takip edilir"
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4 items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <Check className="w-6 h-6 text-primary" />
-                  </div>
-                  <p className="text-lg">{item}</p>
-                </div>
-              ))}
-            </div>
-            <p className="text-center text-lg font-semibold mt-12 text-primary">
-              Kısa sürede gözle görülür değişim hedeflenir.
+            <p>
+              Disiplinli ve sonuç odaklı çalışma sistemiyle; kilo verme, kondisyon geliştirme, güç ve dayanıklılık artırma konularında profesyonel destek sağlıyorum.
+            </p>
+            <p>
+              Sporun yalnızca fiziksel değil, karakter gelişimi açısından da güçlü bir araç olduğuna inanıyorum.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Hakkımda */}
-      <section id="hakkimda" className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">HAKKIMDA</h2>
-            
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
-              <div>
-                <p className="text-lg leading-relaxed mb-6">
-                  Ben Baki Yılmaz. 1997 yılında boks branşına başladım ve 29 yıldır aktif olarak sporun içindeyim. Türkiye şampiyonluğu derecelerim ve milli takım geçmişim bulunmaktadır.
-                </p>
-                <p className="text-lg leading-relaxed mb-6">
-                  Üniversitede beden eğitimi öğretmenliği eğitimi aldım ve uzun yıllar hem sporcu hem antrenör olarak görev yaptım.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  Bugüne kadar yüzlerce öğrenci ile çalıştım. Amacım sadece teknik öğretmek değil; disiplin, özgüven ve sağlıklı yaşam alışkanlığı kazandırmaktır.
-                </p>
-              </div>
-              <div className="bg-background p-8 border-2 border-border">
-                <h3 className="text-2xl font-bold mb-6 text-primary">TECRÜBE, DİSİPLİN VE SONUÇ</h3>
-                <ul className="space-y-4">
-                  <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
-                    <span>1997'den beri aktif spor hayatı</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
-                    <span>Türkiye şampiyonluğu dereceleri</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
-                    <span>Milli takım geçmişi</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
-                    <span>29+ yıl tecrübe</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-primary font-bold">✓</span>
-                    <span>Yüzlerce memnun öğrenci</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-primary/10 border-l-4 border-primary p-8 mb-8">
-              <p className="text-lg italic">
-                "Amacımız sadece spor yaptırmak değil, özgüven kazandırmak."
-              </p>
-            </div>
-
-            <div className="bg-background p-8 border-2 border-border">
-              <h3 className="text-2xl font-bold mb-6">YAŞ SINIRI VAR MI?</h3>
-              <p className="text-lg mb-4">
-                <span className="font-bold text-primary">4 – 70 yaş arası öğrencilerimiz bulunmaktadır.</span>
-              </p>
-              <p className="text-lg mb-4">
-                5 yaşında öğrencimiz de var, 60 yaşında öğrencimiz de.
-              </p>
-              <p className="text-lg">
-                Yaşa değil, doğru planlamaya odaklanıyoruz.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Hizmetler */}
+      {/* Özel Ders Alanları */}
       <section id="hizmetler" className="py-20 bg-background border-t-4 border-primary animate-on-scroll">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">HİZMETLERİMİZ</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Özel Ders Alanları</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, i) => (
-              <Card key={i} className="p-8 bg-card border-2 border-border hover:border-primary transition-colors duration-300">
-                <h3 className="text-2xl font-bold mb-2 text-primary">{service.title}</h3>
-                <p className="text-muted-foreground mb-6">{service.description}</p>
-                <ul className="space-y-3">
-                  {service.details.map((detail, j) => (
-                    <li key={j} className="flex gap-2">
-                      <span className="text-primary font-bold">•</span>
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
+              <Card key={i} className="p-8 bg-card border-2 border-border hover:border-primary transition-colors">
+                <div className="text-5xl mb-4">{service.icon}</div>
+                <h3 className="text-2xl font-bold">{service.title}</h3>
               </Card>
             ))}
-          </div>
-
-          <div className="mt-16 bg-card border-2 border-border p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-6">GRUP DERS PROGRAMI</h3>
-            <div className="space-y-6">
-              <div>
-                <h4 className="text-xl font-bold text-primary mb-2">✅ Hafta İçi</h4>
-                <p className="text-lg">16 yaş ve üzeri yetişkin grup dersleri</p>
-              </div>
-              <div>
-                <h4 className="text-xl font-bold text-primary mb-2">✅ Hafta Sonu</h4>
-                <p className="text-lg mb-2">5–10 yaş çocuk grup dersleri</p>
-                <p className="text-lg">Saat aralığı: 12:00 – 13:00</p>
-                <p className="text-sm text-muted-foreground mt-2">*Gün ve saatler dönemsel olarak değişebilir.</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Neden Baki Yılmaz */}
-      <section id="neden" className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
+      {/* Amaç Net */}
+      <section id="amaç" className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">NEDEN BAKİ YILMAZ?</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {whyChoose.map((item, i) => (
-              <Card key={i} className="p-8 bg-background border-2 border-border">
-                <div className="text-4xl font-bold text-primary mb-4">{i + 1}️⃣</div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
-              </Card>
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Amaç Net</h2>
+          <div className="max-w-2xl mx-auto space-y-6">
+            {goals.map((goal, i) => (
+              <div key={i} className="flex items-center gap-4 text-lg">
+                <Check className="w-8 h-8 text-primary flex-shrink-0" />
+                <span>{goal}</span>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Referanslar */}
-      <section id="referanslar" className="py-20 bg-background border-t-4 border-primary animate-on-scroll">
+      {/* Kimler İçin */}
+      <section id="kimler" className="py-20 bg-background border-t-4 border-primary animate-on-scroll">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Kimler için?</h2>
+          <div className="max-w-2xl mx-auto space-y-4">
+            {whoFor.map((item, i) => (
+              <div key={i} className="flex items-start gap-4 text-lg">
+                <span className="text-primary font-bold">•</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Güçlü Karakter Metni */}
+      <section className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto bg-background p-12 border-2 border-primary">
+            <p className="text-2xl md:text-3xl font-bold mb-6 leading-relaxed">
+              Burada sadece kilo verilmez.
+            </p>
+            <p className="text-2xl md:text-3xl font-bold mb-8 leading-relaxed">
+              Burada kondisyon inşa edilir, karakter şekillenir, irade güçlenir.
+            </p>
+            <p className="text-xl text-muted-foreground mb-4">
+              Bahane değil sonuç isteyenler için.
+            </p>
+            <p className="text-xl text-muted-foreground">
+              Sınırlarını zorlamak isteyenler için.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Tecrübe ve Altyapı */}
+      <section className="py-20 bg-background border-t-4 border-primary animate-on-scroll">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Tecrübe ve Altyapı</h2>
+          <div className="max-w-2xl mx-auto space-y-4">
+            {experience.map((item, i) => (
+              <div key={i} className="flex items-start gap-4 text-lg">
+                <span className="text-primary font-bold">•</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Müşteri Yorumları */}
+      <section className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">MÜŞTERİ YORUMLARI</h2>
           <Carousel items={testimonialItems} />
@@ -435,12 +362,12 @@ export default function Home() {
       </section>
 
       {/* SSS */}
-      <section id="sss" className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
+      <section id="sss" className="py-20 bg-background border-t-4 border-primary animate-on-scroll">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">SIKÇA SORULAN SORULAR</h2>
           <div className="max-w-4xl mx-auto space-y-6">
             {faqs.map((faq, i) => (
-              <Card key={i} className="p-8 bg-background border-2 border-border">
+              <Card key={i} className="p-8 bg-card border-2 border-border">
                 <h3 className="text-xl font-bold mb-4 text-primary">{faq.q}</h3>
                 <p className="text-lg text-muted-foreground">{faq.a}</p>
               </Card>
@@ -449,78 +376,93 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-background border-t-4 border-primary animate-on-scroll">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">HAZIRSAN BAŞLAYALIM</h2>
-          <p className="text-2xl text-muted-foreground mb-8">
-            Değişim karar ile başlar. İlk adımı at, programını birlikte planlayalım.
-          </p>
-          <Button 
-            onClick={scrollToContact}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-bold"
-          >
-            📞 HEMEN İLETİŞİME GEÇ
-          </Button>
+      {/* Hızlı Bilgi Formu */}
+      <section className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-center">Bilgi ve fiyat almak için bırakın, sizi arayalım.</h2>
+            <form className="space-y-6 mb-8">
+              <div>
+                <input 
+                  type="text"
+                  placeholder="Ad Soyad"
+                  className="w-full px-4 py-3 bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
+                />
+              </div>
+              <div>
+                <input 
+                  type="tel"
+                  placeholder="Telefon"
+                  className="w-full px-4 py-3 bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
+                />
+              </div>
+              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3 font-bold text-lg">
+                BİLGİ AL
+              </Button>
+            </form>
+            <p className="text-center text-sm text-muted-foreground">
+              En kısa sürede dönüş yapılacaktır. Ders içeriği ve fiyat bilgisi telefonla paylaşılır.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* İletişim */}
-      <section id="iletisim" className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
+      <section id="iletisim" className="py-20 bg-background border-t-4 border-primary animate-on-scroll">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">HEMEN BAŞLAYALIM</h2>
           <div className="max-w-2xl mx-auto">
-            {/* İletişim Bilgileri */}
             <div className="space-y-8">
-              <div className="bg-background p-8 border-2 border-border">
+              <div className="bg-card p-8 border-2 border-border">
                 <h3 className="text-2xl font-bold mb-4 text-primary">📱 WhatsApp</h3>
-                <p className="text-muted-foreground mb-4">Hızlı iletişim için WhatsApp üzerinden ulaşın</p>
-                <a 
-                  href="https://wa.me/905XXXXXXXXX" 
-                  className="inline-block bg-primary text-primary-foreground px-6 py-3 font-bold hover:bg-primary/90 transition-colors"
-                >
-                  WHATSAPP'TAN YAZ
+                <p className="text-muted-foreground mb-4">Hızlı bilgi almak için WhatsApp'tan yazabilirsiniz.</p>
+                <a href={whatsappLink}>
+                  <Button className="w-full bg-green-600 hover:bg-green-700">
+                    WHATSAPP'TAN YAZ
+                  </Button>
                 </a>
               </div>
 
-              <div className="bg-background p-8 border-2 border-border">
+              <div className="bg-card p-8 border-2 border-border">
                 <h3 className="text-2xl font-bold mb-4 text-primary">📍 Konum</h3>
-                <p className="font-bold mb-2">B.Y. Fight Club Academy</p>
+                <p className="font-bold">B.Y. Fight Club Academy</p>
                 <p className="text-muted-foreground">Ataşehir, İstanbul</p>
               </div>
 
-              <div className="bg-background p-8 border-2 border-border">
-                <h3 className="text-2xl font-bold mb-6 text-primary">Sosyal Medya</h3>
+              <div className="bg-card p-8 border-2 border-border">
+                <h3 className="text-2xl font-bold mb-4 text-primary">SOSYAL MEDYA</h3>
                 <div className="flex gap-4">
-                  <a 
-                    href="https://www.instagram.com/baki_ylmaz?igsh=MXZ5ank5NjVqenQ5Yg=="
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                  >
+                  <a href="https://www.instagram.com/baki_ylmaz?igsh=MXZ5ank5NjVqenQ5Yg==" target="_blank" rel="noopener noreferrer" className="bg-primary p-3 hover:bg-primary/90 transition-colors">
                     <Instagram className="w-6 h-6" />
                   </a>
-                  <a 
-                    href="https://www.tiktok.com/@bakiyilmazfightclub?_r=1&_t=ZS-93tQ4XNjv16"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                  >
+                  <a href="https://www.tiktok.com/@bakiyilmazfightclub?_r=1&_t=ZS-93tQ4XNjv16" target="_blank" rel="noopener noreferrer" className="bg-primary p-3 hover:bg-primary/90 transition-colors">
                     <Phone className="w-6 h-6" />
                   </a>
-                  <a 
-                    href="https://www.youtube.com/@bakiylmaz6484"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                  >
+                  <a href="https://www.youtube.com/@bakiylmaz6484" target="_blank" rel="noopener noreferrer" className="bg-primary p-3 hover:bg-primary/90 transition-colors">
                     <Youtube className="w-6 h-6" />
                   </a>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-
+      {/* Kapanış */}
+      <section className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            <p className="text-xl text-muted-foreground">
+              Disiplinli antrenman, net hedefler ve gerçek sonuçlar için doğru yerdesiniz.
+            </p>
+            <p className="text-xl text-muted-foreground">
+              İlk adımı atın, gerisini birlikte planlayalım.
+            </p>
+            <a href={whatsappLink}>
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 py-3 px-8 text-lg font-bold">
+                BAŞLAYALIM
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -538,8 +480,8 @@ export default function Home() {
               <a href="#hizmetler" className="text-muted-foreground hover:text-primary transition-colors">Tüm Hizmetler</a>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Projeler</h4>
-              <a href="#referanslar" className="text-muted-foreground hover:text-primary transition-colors">Başarı Hikayeleri</a>
+              <h4 className="font-bold mb-4">Amaç</h4>
+              <a href="#amaç" className="text-muted-foreground hover:text-primary transition-colors">Amaçlarımız</a>
             </div>
             <div>
               <h4 className="font-bold mb-4">İletişim</h4>
