@@ -205,14 +205,14 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 pt-20">
           <div className="mb-6 inline-block border-2 border-primary px-4 py-2">
             <span className="text-primary font-bold tracking-wider">B.Y. FIGHT CLUB ACADEMY</span>
           </div>
           <h1 className="text-6xl md:text-7xl font-black mb-6 leading-tight tracking-tighter">
-            DİSİPLİN.<br />
-            KARAKTER.<br />
-            GÜÇÜ.
+            DİSİPLİN<br />
+            KARAKTER<br />
+            GÜÇÜ
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
             29 yıllık spor tecrübesi ve milli sporculuk altyapısıyla boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir özel ders.
@@ -295,17 +295,17 @@ export default function Home() {
       {/* Güçlü Karakter Metni */}
       <section className="py-20 bg-card border-t-4 border-primary animate-on-scroll">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto bg-background p-12 border-2 border-primary">
-            <p className="text-2xl md:text-3xl font-bold mb-6 leading-relaxed">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-2xl md:text-2xl font-bold mb-6 leading-relaxed">
               Burada sadece kilo verilmez.
             </p>
-            <p className="text-2xl md:text-3xl font-bold mb-8 leading-relaxed">
+            <p className="text-2xl md:text-2xl font-bold mb-6 leading-relaxed">
               Burada kondisyon inşa edilir, karakter şekillenir, irade güçlenir.
             </p>
-            <p className="text-xl text-muted-foreground mb-4">
+            <p className="text-2xl md:text-2xl font-bold mb-6 leading-relaxed">
               Bahane değil sonuç isteyenler için.
             </p>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-2xl md:text-2xl font-bold leading-relaxed">
               Sınırlarını zorlamak isteyenler için.
             </p>
           </div>
@@ -403,17 +403,23 @@ export default function Home() {
                 <p className="text-muted-foreground">Ataşehir, İstanbul</p>
               </div>
 
-              <div className="bg-card p-8 border-2 border-border">
-                <h3 className="text-2xl font-bold mb-4 text-primary">SOSYAL MEDYA</h3>
-                <div className="flex gap-4">
-                  <a href="https://www.instagram.com/baki_ylmaz?igsh=MXZ5ank5NjVqenQ5Yg==" target="_blank" rel="noopener noreferrer" className="bg-primary p-3 hover:bg-primary/90 transition-colors">
-                    <Instagram className="w-6 h-6" />
+              <div className="text-center">
+                <h3 className="text-2xl font-bold mb-8 text-primary">SOSYAL MEDYA</h3>
+                <div className="flex gap-4 justify-center flex-wrap">
+                  <a href="https://www.instagram.com/baki_ylmaz?igsh=MXZ5ank5NjVqenQ5Yg==" target="_blank" rel="noopener noreferrer" className="bg-primary p-6 hover:bg-primary/90 transition-colors w-16 h-16 flex items-center justify-center">
+                    <Instagram className="w-8 h-8" />
                   </a>
-                  <a href="https://www.tiktok.com/@bakiyilmazfightclub?_r=1&_t=ZS-93tQ4XNjv16" target="_blank" rel="noopener noreferrer" className="bg-primary p-3 hover:bg-primary/90 transition-colors">
-                    <Phone className="w-6 h-6" />
+                  <a href="https://www.tiktok.com/@bakiyilmazfightclub?_r=1&_t=ZS-93tQ4XNjv16" target="_blank" rel="noopener noreferrer" className="bg-primary p-6 hover:bg-primary/90 transition-colors w-16 h-16 flex items-center justify-center">
+                    <Phone className="w-8 h-8" />
                   </a>
-                  <a href="https://www.youtube.com/@bakiylmaz6484" target="_blank" rel="noopener noreferrer" className="bg-primary p-3 hover:bg-primary/90 transition-colors">
-                    <Youtube className="w-6 h-6" />
+                  <a href="https://www.youtube.com/@bakiylmaz6484" target="_blank" rel="noopener noreferrer" className="bg-primary p-6 hover:bg-primary/90 transition-colors w-16 h-16 flex items-center justify-center">
+                    <Youtube className="w-8 h-8" />
+                  </a>
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="bg-green-600 p-6 hover:bg-green-700 transition-colors w-16 h-16 flex items-center justify-center">
+                    <Phone className="w-8 h-8" />
+                  </a>
+                  <a href="#" className="bg-primary p-6 hover:bg-primary/90 transition-colors w-16 h-16 flex items-center justify-center">
+                    <MapPin className="w-8 h-8" />
                   </a>
                 </div>
               </div>
@@ -463,7 +469,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-border pt-8 text-center text-muted-foreground">
-            <p>&copy; 2024 B.Y. Fight Club Academy. Tüm hakları saklıdır.</p>
+            <p>&copy;2026 Tüm hakları saklıdır.</p>
           </div>
         </div>
       </footer>
