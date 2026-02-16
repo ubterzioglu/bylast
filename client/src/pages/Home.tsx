@@ -201,7 +201,7 @@ export default function Home() {
           muted
           loop
           className="absolute inset-0 w-full h-full object-cover"
-          src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/boxing-ring-video.mp4"
+          src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/ZtxZoIfEuaiQfjAz.mp4"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         
