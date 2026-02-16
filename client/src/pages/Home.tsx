@@ -210,9 +210,9 @@ export default function Home() {
             <span className="text-primary font-bold tracking-wider">B.Y. FIGHT CLUB ACADEMY</span>
           </div>
           <h1 className="text-6xl md:text-7xl font-black mb-6 leading-tight tracking-tighter">
+            GÜVEN<br />
             DİSİPLİN<br />
-            KARAKTER<br />
-            GÜÇ
+            TECRÜBE
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
             29 yıllık spor tecrübesi ve milli sporculuk altyapısıyla boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir özel ders.
