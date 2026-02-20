@@ -215,7 +215,7 @@ export default function Home() {
             TECRÜBE
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            29 yıllık spor tecrübesi ve milli sporculuk altyapısıyla boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir özel ders.
+            29 yıllık spor tecrübesi ve milli sporculuk altyapısıyla boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir özel ders ve grup dersi.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button onClick={scrollToContact} className="bg-primary text-primary-foreground hover:bg-primary/90 py-3 px-8 text-lg font-bold">
