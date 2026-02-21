@@ -44,46 +44,81 @@ export default function Home() {
   const whatsappMessage = encodeURIComponent("Merhaba, web siteniz üzerinden ulaşıyorum. Özel dersler ve fiyat bilgisi hakkında bilgi almak istiyorum.");
   const whatsappLink = `https://wa.me/905XX5XXXXXX?text=${whatsappMessage}`;
 
-  // Google reviews - placeholder for real Google Maps reviews
+  // Real Google reviews from customers
   const testimonials = [
     {
-      name: "Ahmet Kaya",
-      date: "2 ay önce",
-      text: "Baki ile çalışmaya başladığımdan beri hayatım tamamen değişti. Profesyonel yaklaşımı ve motivasyonu sayesinde hedeflerime ulaştım.",
+      name: "Akın Özkan",
+      text: "Baki ile boksa başlayalı 3 ay oldu ve bu kararı verdiğim için çok mutluyum. Kendisi gerçekten profesyonel, disiplinli ve ciddi bir eğitmen. İletişim ve sohbet becerileri de çok güçlü; sadece boks öğrenmiyor, aynı zamanda iyi bir ortam ve sağlam bir arkadaşlık kazanıyorsunuz.",
       rating: 5,
     },
     {
-      name: "Zeynep Demir",
-      date: "1 ay önce",
-      text: "Kickbox derslerinde öğrendiklerimin yanı sıra kendime olan güvenim de arttı. Çok teşekkür ederim Baki!",
+      name: "Mustafa Bozkurt",
+      text: "Boksa yeni başlamış olmama rağmen Baki Yılmaz Boxing Academy'de kendimi çok rahat hissettim. Eğitmenlerin sabrı ve teknik anlatımı çok iyi. Burası sadece bir spor salonu değil, gerçek bir boks okulu atmosferi var.",
       rating: 5,
     },
     {
-      name: "Mehmet Yıldız",
-      date: "3 hafta önce",
-      text: "Fitness hedeflerime ulaşmak için Baki'nin yardımı çok önemliydi. Kişiselleştirilmiş programı sayesinde başarılı oldum.",
+      name: "Bilal Yılmaz",
+      text: "Yıllardır emek veren değerli hocam Baki Yılmaz'a en içten teşekkürlerimi sunuyorum.",
       rating: 5,
     },
     {
-      name: "Ayşe Çetin",
-      date: "1 hafta önce",
-      text: "Grup derslerine katılmak çok eğlenceli. Baki'nin enerjisi ve bilgisi bizi her zaman motive ediyor.",
+      name: "Doruk Özkan",
+      text: "Birkaç aydır Baki ile ders yapıyorum. Çok ilgili ve etkili bir şekilde öğretiyor. Hem öğretmen hem arkadaş gibi. Başladığımdan beri kondisyonum ve özgüvenim arttı.",
+      rating: 5,
+    },
+    {
+      name: "Ahmet Kaan Kara",
+      text: "Baki Hoca ile geçirdiğim süreçte gelişimime çok katkısı oldu ve ilgisini hiç eksik etmedi. Bana boksu sevdirdi ve spor hayatımın bir parçası oldu.",
+      rating: 5,
+    },
+    {
+      name: "Yılmaz Çoban",
+      text: "10 yıldır Baki Yılmaz ile çalışıyorum. Boks öğrenmek isteyen veya yeni başlayan herkese tavsiye edeceğim, başarılı ve disiplinli bir antrenör.",
+      rating: 5,
+    },
+    {
+      name: "Elif Beyza Çorlu",
+      text: "Milli sporcu olarak 3 yıldır Baki hocamla çalışıyorum. Hem sohbetleri hem antrenmanları çok keyifli. Bu sporla ilgilenen herkesin gelmesini tavsiye ederim.",
+      rating: 5,
+    },
+    {
+      name: "Baki Yağız Baykal",
+      text: "3 aydır geliyorum. Çok temiz, güzel ve öğretici bir yer. Tavsiye ederim.",
+      rating: 5,
+    },
+    {
+      name: "Sergen Seyhun",
+      text: "Yıllardır fitness yapan biri olarak Baki ile ilk dersimi aldım. Bu kadar ilgili ve bilgili birini görmemiştim. Gerçekten çok profesyonel.",
+      rating: 5,
+    },
+    {
+      name: "Bike Şenel",
+      text: "Baki hocanın kişisel ilgisi, beslenme programı ve özel antrenmanları sayesinde kısa sürede yaklaşık 20 kilo verdim. Sporu sevdiren, tutkulu bir antrenör.",
+      rating: 5,
+    },
+    {
+      name: "Feryal Doğan",
+      text: "Eşimle birlikte yeniden spor yapmaya başlamak için Baki hocayı bulduk ve çok memnun kaldık. Motive edici ve faydalı bir ortam.",
+      rating: 5,
+    },
+    {
+      name: "Büşra Kara",
+      text: "Etkili bir boks paket eğitimi aldım. Hiç bilgim yokken hocam sayesinde boksu sevdim. Kesinlikle tavsiye ederim.",
       rating: 5,
     },
   ];
 
   const testimonialItems = testimonials.map((t) => (
     <div key={t.name} className="bg-background p-8 border-2 border-border">
-      <div className="flex gap-1 mb-2">
+      <div className="flex gap-1 mb-4">
         {Array.from({ length: t.rating }).map((_, i) => (
           <Star key={i} className="w-5 h-5 fill-primary text-primary" />
         ))}
       </div>
-      <p className="text-sm text-muted-foreground mb-4">{t.date}</p>
       <p className="text-lg mb-4 text-muted-foreground">"{t.text}"</p>
       <p className="font-bold">{t.name}</p>
     </div>
-  ));
+  ))
 
   // Services without emojis - with placeholder for images
   const services = [
