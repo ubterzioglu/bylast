@@ -204,7 +204,7 @@ export default function Home() {
             TECRÜBE
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            29 yıllık spor tecrübesi ve milli sporcu altyapısıyla boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir özel ders ve grup dersi.
+            29 yıllık spor tecrübesi ve milli sporcu ile boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir özel ders ve grup dersi.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button onClick={scrollToContact} className="bg-primary text-primary-foreground hover:bg-primary/90 py-3 px-8 text-lg font-bold">
@@ -226,7 +226,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-                29 yıllık spor tecrübesi ve milli sporcu altyapısıyla; boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir, hedef odaklı özel dersler veriyorum.
+                29 yıllık spor tecrübesi ve milli sporcu ile; boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir, hedef odaklı özel dersler veriyorum.
               </p>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
                 Disiplinli ve sonuç odaklı çalışma sistemiyle; kilo verme, kondisyon geliştirme, güç ve dayanıklılık artırma konularında profesyonel destek sağlıyorum.
