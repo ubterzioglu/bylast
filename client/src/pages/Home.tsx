@@ -240,7 +240,7 @@ export default function Home() {
                 <h3 className="font-bold text-lg mb-2">Tecrübe ve Altyapı</h3>
                 <ul className="space-y-2 text-muted-foreground">
                   <li className="flex gap-2"><Check className="w-5 h-5 text-primary flex-shrink-0" /> 29 yıllık spor tecrübesi</li>
-                  <li className="flex gap-2"><Check className="w-5 h-5 text-primary flex-shrink-0" /> Milli sporcu altyapısı</li>
+                  <li className="flex gap-2"><Check className="w-5 h-5 text-primary flex-shrink-0" /> Milli sporcu</li>
                   <li className="flex gap-2"><Check className="w-5 h-5 text-primary flex-shrink-0" /> Disiplinli ve sistemli antrenman yaklaşımı</li>
                   <li className="flex gap-2"><Check className="w-5 h-5 text-primary flex-shrink-0" /> Hedef ve sonuç odaklı çalışma modeli</li>
                 </ul>
