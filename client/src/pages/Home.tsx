@@ -48,12 +48,12 @@ export default function Home() {
   const testimonials = [
     {
       name: "Akın Özkan",
-      text: "Baki ile boksa başlayalı 3 ay oldu ve bu kararı verdiğim için çok mutluyum. Kendisi gerçekten profesyonel, disiplinli ve ciddi bir eğitmen. İletişim ve sohbet becerileri de çok güçlü; sadece boks öğrenmiyor, aynı zamanda iyi bir ortam ve sağlam bir arkadaşlık kazanıyorsunuz.",
+      text: "Baki ile boksa başlayalı 3 ay oldu ve bu kararı verdiğim için çok mutluyum. Kendisi gerçekten profesyonel, disiplinli ve ciddi bir eğitmen. İletişim ve sohbet becerileri de çok güçlü; sadece boks öğrenmiyor, aynı zamanda iyi bir ortam ve sağlam bir arkadaşlık kazanıyorsunuz. Daha önce hiç boks yapmamış biri olarak önce grup derslerini düşünmüştüm ancak Baki'nin önerisiyle özel derslere başladım ve bu kesinlikle doğru bir karardı. Temelleri doğru öğrenmek, teknikleri düzgün oturtmak ve birebir ilgi görmek gelişimi inanılmaz hızlandırıyor. Herkese gönülden tavsiye ederim.",
       rating: 5,
     },
     {
       name: "Mustafa Bozkurt",
-      text: "Boksa yeni başlamış olmama rağmen Baki Yılmaz Boxing Academy'de kendimi çok rahat hissettim. Eğitmenlerin sabrı ve teknik anlatımı çok iyi. Burası sadece bir spor salonu değil, gerçek bir boks okulu atmosferi var.",
+      text: "Boksa yeni başlamış olmama rağmen Baki Yılmaz Boxing Academy'de kendimi çok rahat hissettim. Eğitmenlerin sabrı ve teknik anlatımı çok iyi. Burası sadece bir spor salonu değil, gerçek bir boks okulu atmosferi var. Motivasyon düştüğünde sizi yeniden yükseltiyorlar.",
       rating: 5,
     },
     {
@@ -104,6 +104,221 @@ export default function Home() {
     {
       name: "Büşra Kara",
       text: "Etkili bir boks paket eğitimi aldım. Hiç bilgim yokken hocam sayesinde boksu sevdim. Kesinlikle tavsiye ederim.",
+      rating: 5,
+    },
+    {
+      name: "Tuana",
+      text: "5 yıldır ders alıyorum. Beni yeniden spora kazandırdı ve özgüvenimi artırdı.",
+      rating: 5,
+    },
+    {
+      name: "Dursun Öztürk",
+      text: "Harika bir insan ve antrenör. Oğlumla birlikte başladık ve kısa sürede büyük gelişim gördük.",
+      rating: 5,
+    },
+    {
+      name: "Tayfun Kublay",
+      text: "Yaklaşık 8 yıldır çalışıyorum ve çok faydasını gördüm. Ameliyat sonrası spora dönmemde de destek oldu.",
+      rating: 5,
+    },
+    {
+      name: "Kaptan Muavin",
+      text: "10 yaşımdan beri hocamla birlikteyim. Milli sporcu olmamda çok katkısı oldu. Tavsiye ederim.",
+      rating: 5,
+    },
+    {
+      name: "Cüneyt Karataş",
+      text: "Aldığım kickboks ve boks eğitimleri çok faydalı oldu. İlgili ve sıcak bir eğitmen.",
+      rating: 5,
+    },
+    {
+      name: "Eren Gerginkıl",
+      text: "Aylardır birebir derslerle hazırlanıyorum ve sürekli gelişiyorum. Herkese tavsiye ederim.",
+      rating: 5,
+    },
+    {
+      name: "Kemal Kızılca",
+      text: "3 yıldır çalışıyorum, hem fiziksel gelişim hem keyif açısından çok iyi bir yer.",
+      rating: 5,
+    },
+    {
+      name: "Ecem Beyza",
+      text: "Salon çok temiz, birebir dersler eğlenceli ve verimli. Tavsiye ederim.",
+      rating: 5,
+    },
+    {
+      name: "Berkay Çomak",
+      text: "Her ders verimli ve keyifli. Düzenli gelince sonuçları net görüyorsunuz.",
+      rating: 5,
+    },
+    {
+      name: "Ege Tastekin",
+      text: "Güvenilir ve kaliteli spor eğitimi almak isteyen herkese öneririm.",
+      rating: 5,
+    },
+    {
+      name: "Anıl Sargın",
+      text: "Ekipman açısından zengin ve keyifli bir spor stüdyosu.",
+      rating: 5,
+    },
+    {
+      name: "Ahmet Berber",
+      text: "Öğrencilerine her türlü desteği sağlayan, sporun inceliklerini öğreten bir antrenör.",
+      rating: 5,
+    },
+    {
+      name: "Kıvanç Beşe",
+      text: "Düzenli ve disiplinli çalışması için hocama teşekkür ederim.",
+      rating: 5,
+    },
+    {
+      name: "Özlem Özbay",
+      text: "Enerjik, öğretici ve keyifli dersler.",
+      rating: 5,
+    },
+    {
+      name: "Deniz Demir",
+      text: "Bu alanda profesyonel arayanlar için doğru adres.",
+      rating: 5,
+    },
+    {
+      name: "Kayra Gilan",
+      text: "Her seviyeye uygun, sıcak bir ortam.",
+      rating: 5,
+    },
+    {
+      name: "Eren Aydın",
+      text: "Aile ortamı gibi bir yer, herkesle tek tek ilgileniliyor.",
+      rating: 5,
+    },
+    {
+      name: "Nisa Gültepe",
+      text: "Özgüvenimi artıran ve bana çok şey öğreten bir hoca.",
+      rating: 5,
+    },
+    {
+      name: "Trendekiadam",
+      text: "Deneyimli bir antrenör ve kilo verme konusunda da destek veriyor.",
+      rating: 5,
+    },
+    {
+      name: "Cem Birlik",
+      text: "Beni spora sevdiren çok iyi bir antrenör.",
+      rating: 5,
+    },
+    {
+      name: "Alican Avezov",
+      text: "Rahat ve güvenli bir ortamda gelişim sağlayan bir eğitmen.",
+      rating: 5,
+    },
+    {
+      name: "Çağlar Balcıoğlu",
+      text: "Sonuç odaklı ve dürüst bir antrenör.",
+      rating: 5,
+    },
+    {
+      name: "Ferda Aksu",
+      text: "Temiz ve samimi bir ortam.",
+      rating: 5,
+    },
+    {
+      name: "Cansu Yolaşan",
+      text: "Yıllardır gidiyorum ve her antrenmandan memnun ayrılıyorum.",
+      rating: 5,
+    },
+    {
+      name: "Arda",
+      text: "1,5 yıldır çalışıyorum, harika bir yer.",
+      rating: 5,
+    },
+    {
+      name: "Hamza Ekiz",
+      text: "Kilo vermemde çok yardımcı oldu, herkese tavsiye ederim.",
+      rating: 5,
+    },
+    {
+      name: "Ege Ozgunes",
+      text: "Boksu sevdiren, samimi bir eğitmen.",
+      rating: 5,
+    },
+    {
+      name: "Mujdat Korur",
+      text: "Çok faydalı deneyimler kazandığım bir antrenman alanı.",
+      rating: 5,
+    },
+    {
+      name: "Elif Orhan",
+      text: "Kısa sürede ilerleme sağladım ve kilo verdim.",
+      rating: 5,
+    },
+    {
+      name: "Serkan Öztürk",
+      text: "Vakit kaybetmeden gelip burada çalışmanızı öneririm.",
+      rating: 5,
+    },
+    {
+      name: "Dr. Hakan Berooglu",
+      text: "Gerçek bir profesyonelden ders almak büyük keyif.",
+      rating: 5,
+    },
+    {
+      name: "Burak Ozyaz",
+      text: "Eğlenerek kilo vermek isteyenler için ideal.",
+      rating: 5,
+    },
+    {
+      name: "İrem Ata",
+      text: "Verimli ve keyifli dersler.",
+      rating: 5,
+    },
+    {
+      name: "Gökay Yüksel",
+      text: "Uzun süredir geliyorum ve çok memnunum.",
+      rating: 5,
+    },
+    {
+      name: "Mustafa Dorum",
+      text: "İki ayda 7 kilo verdim.",
+      rating: 5,
+    },
+    {
+      name: "Cengiz Saraçoğlu",
+      text: "Yıllardır mutlu olduğum bir antrenman yeri.",
+      rating: 5,
+    },
+    {
+      name: "Barış Sirkeci",
+      text: "Karakter ve profesyonel gelişim için doğru adres.",
+      rating: 5,
+    },
+    {
+      name: "Yiğit",
+      text: "Çok iyi bir öğretmen, memnunum.",
+      rating: 5,
+    },
+    {
+      name: "Dila Karataş",
+      text: "Eğlenceli ve enerjik antrenmanlar.",
+      rating: 5,
+    },
+    {
+      name: "Osman Çelebi",
+      text: "Hayatımı değiştiren bir süreç oldu.",
+      rating: 5,
+    },
+    {
+      name: "Ezgi",
+      text: "Disiplinli eğitmen ve çok iyi ekipmanlar.",
+      rating: 5,
+    },
+    {
+      name: "Elif Gülay",
+      text: "Kişisel gelişimime ve spor yolculuğuma büyük katkı sağladı.",
+      rating: 5,
+    },
+    {
+      name: "Ömer Cahan",
+      text: "Disiplin kazandıran ve verimli bir antrenman süreci.",
       rating: 5,
     },
   ];
@@ -167,6 +382,7 @@ export default function Home() {
             <a href="#hizmetler" className="hover:text-primary transition">HİZMETLER</a>
             <a href="#amac" className="hover:text-primary transition">AMAÇ</a>
             <a href="#kimler" className="hover:text-primary transition">KİMLER İÇİN</a>
+            <a href="#galeri" className="hover:text-primary transition">GALERİ</a>
             <a href="#sss" className="hover:text-primary transition">SSS</a>
             <a href="#iletisim" className="hover:text-primary transition">İLETİŞİM</a>
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 ml-4">
@@ -312,6 +528,132 @@ export default function Home() {
             <p className="text-xl text-muted-foreground mb-4">Burada kondisyon inşa edilir, karakter şekillenir, irade güçlenir.</p>
             <p className="text-xl text-muted-foreground mb-4">Bahane değil sonuç isteyenler için.</p>
             <p className="text-xl text-muted-foreground">Sınırlarını zorlamak isteyenler için.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="galeri" className="py-20 bg-card">
+        <div className="container animate-on-scroll">
+          <h2 className="text-5xl font-black mb-12">GALERİ</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_0394.jpg" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_0494.JPG" alt="Sporcular" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_3006.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_7064.JPG" alt="Yarışma" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_7075.JPG" alt="Ödül Töreni" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8379.JPG" alt="Sporcu ve Hoca" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8380.JPG" alt="Salon" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8381.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8382.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8383.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8384.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8385.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8387.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8388.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8389.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8390.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8391.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8392.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8393.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8394.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8395.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8396.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8397.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8398.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8399.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8400.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8401.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8402.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8403.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8405.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8406.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8407.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8408.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8409.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8410.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8411.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8412.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8744.jpg" alt="Birebir Özel Kurslar" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
+            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
+              <img src="/gallery/IMG_8745.jpg" alt="Çocuklar için Kickboks" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            </div>
           </div>
         </div>
       </section>
