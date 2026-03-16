@@ -255,15 +255,23 @@ export default function Home() {
         <div className="container animate-on-scroll">
           <h2 className="text-5xl font-black mb-12">ÖZELLİKLİ DERS ALANLARI</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <div key={service.title} className="bg-background p-8 border-2 border-border hover:border-primary transition">
-                <div className="w-full h-40 bg-muted mb-4 rounded flex items-center justify-center text-muted-foreground">
-                  [Fotoğraf: {service.title}]
+            {services.map((service, idx) => {
+              const images = [
+                'https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/GQjWJuFVwwdEmHqL.jpg',
+                'https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/xjNVvyFRYMovepuU.jpg',
+                'https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/ifGWsJdGuGEAAoCb.jpg',
+                'https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/QBqVqYGduUvuuKNK.jpg',
+                'https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/GQjWJuFVwwdEmHqL.jpg',
+                'https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/xjNVvyFRYMovepuU.jpg',
+              ];
+              return (
+                <div key={service.title} className="bg-background p-8 border-2 border-border hover:border-primary transition">
+                  <img src={images[idx % images.length]} alt={service.title} className="w-full h-40 object-cover mb-4 rounded" />
+                  <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+                  <p className="text-muted-foreground">{service.description}</p>
                 </div>
-                <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
