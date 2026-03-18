@@ -465,7 +465,7 @@ export default function Home() {
       {/* Services Section */}
       <section id="hizmetler" className="py-20 bg-card">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12 text-center">ÖZELLİKLİ DERS ALANLARI</h2>
+          <h2 className="text-5xl font-black mb-12 text-center">ÖZEL VE GRUP DERS BRANŞLARI</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {services.map((service, idx) => {
               const images = [
