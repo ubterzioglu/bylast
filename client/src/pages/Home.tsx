@@ -384,9 +384,11 @@ export default function Home() {
             <Link href="/galeri" className="hover:text-primary transition">GALERİ</Link>
             <a href="#sss" className="hover:text-primary transition">SSS</a>
             <a href="#iletisim" className="hover:text-primary transition">İLETİŞİM</a>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 ml-4">
-              Fiyat bilgisi al
-            </Button>
+            <a href={whatsappLink}>
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 ml-4">
+                Fiyat bilgisi al
+              </Button>
+            </a>
           </div>
         </div>
       </nav>
