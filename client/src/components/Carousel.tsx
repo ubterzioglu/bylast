@@ -6,75 +6,100 @@ interface CarouselProps {
   items: ReactNode[];
   autoScroll?: boolean;
   interval?: number;
+  itemsPerPage?: number;
 }
 
-export default function Carousel({ items, autoScroll = true, interval = 5000 }: CarouselProps) {
-  const [current, setCurrent] = useState(0);
+export default function Carousel({ 
+  items, 
+  autoScroll = true, 
+  interval = 5000,
+  itemsPerPage = 5
+}: CarouselProps) {
+  const [currentPage, setCurrentPage] = useState(0);
   const autoScrollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+
+  // Sayfaya göre gösterilecek item'lar
+  const getVisibleItems = () => {
+    const start = currentPage * itemsPerPage;
+    const end = start + itemsPerPage;
+    return items.slice(start, end);
+  };
 
   useEffect(() => {
     if (!autoScroll) return;
 
     autoScrollRef.current = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % items.length);
+      setCurrentPage((prev) => (prev + 1) % totalPages);
     }, interval);
 
     return () => {
       if (autoScrollRef.current) clearInterval(autoScrollRef.current);
     };
-  }, [autoScroll, interval, items.length]);
+  }, [autoScroll, interval, totalPages]);
 
   const next = () => {
-    setCurrent((prev) => (prev + 1) % items.length);
+    setCurrentPage((prev) => (prev + 1) % totalPages);
   };
 
   const prev = () => {
-    setCurrent((prev) => (prev - 1 + items.length) % items.length);
+    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
   };
 
+  const visibleItems = getVisibleItems();
+
   return (
-    <div className="relative w-full">
-      <div className="overflow-hidden">
-        <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${current * 100}%)` }}>
-          {items.map((item, index) => (
-            <div key={index} className="w-full flex-shrink-0">
-              {item}
-            </div>
-          ))}
+    <div className="relative">
+      {/* Navigation Buttons */}
+      <div className="flex items-center justify-center gap-4">
+        <Button
+          onClick={prev}
+          variant="outline"
+          size="icon"
+          className="flex-shrink-0 bg-background/80 hover:bg-primary hover:text-primary-foreground border-2 border-foreground w-12 h-12"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </Button>
+
+        {/* Items Container - Alt alta dizilim */}
+        <div className="flex-1 max-w-4xl">
+          <div className="space-y-4">
+            {visibleItems.map((item, index) => (
+              <div key={`${currentPage}-${index}`}>
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
+
+        <Button
+          onClick={next}
+          variant="outline"
+          size="icon"
+          className="flex-shrink-0 bg-background/80 hover:bg-primary hover:text-primary-foreground border-2 border-foreground w-12 h-12"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </Button>
       </div>
 
-      {/* Navigation Buttons */}
-      <Button
-        onClick={prev}
-        variant="outline"
-        size="icon"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-primary hover:text-primary-foreground border-2 border-foreground"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </Button>
-
-      <Button
-        onClick={next}
-        variant="outline"
-        size="icon"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-primary hover:text-primary-foreground border-2 border-foreground"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </Button>
-
-      {/* Dots */}
+      {/* Dots - Sayfa sayısı kadar */}
       <div className="flex justify-center gap-2 mt-6">
-        {items.map((_, index) => (
+        {Array.from({ length: totalPages }).map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrent(index)}
+            onClick={() => setCurrentPage(index)}
             className={`w-3 h-3 transition-all duration-300 ${
-              index === current ? 'bg-primary w-8' : 'bg-muted-foreground'
+              index === currentPage ? 'bg-primary w-8' : 'bg-muted-foreground'
             }`}
-            aria-label={`Go to slide ${index + 1}`}
+            aria-label={`Go to page ${index + 1}`}
           />
         ))}
+      </div>
+
+      {/* Sayfa göstergesi */}
+      <div className="text-center mt-2 text-sm text-muted-foreground">
+        Sayfa {currentPage + 1} / {totalPages}
       </div>
     </div>
   );

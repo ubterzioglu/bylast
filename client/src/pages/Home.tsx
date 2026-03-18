@@ -8,9 +8,10 @@ Design Philosophy: Brutalism + Martial Arts Aesthetic
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { MapPin, Instagram, TrendingUp, Youtube, Phone, Star, Check } from "lucide-react";
+import { MapPin, Instagram, Phone, Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Carousel from "@/components/Carousel";
+import { Link } from "wouter";
 
 export default function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -41,8 +42,8 @@ export default function Home() {
     document.getElementById("iletisim")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const whatsappMessage = encodeURIComponent("Merhaba, web siteniz üzerinden ulaşıyorum. Özel dersler ve fiyat bilgisi hakkında bilgi almak istiyorum.");
-  const whatsappLink = `https://wa.me/905XX5XXXXXX?text=${whatsappMessage}`;
+  const whatsappMessage = encodeURIComponent("Bilgi almak istiyorum!");
+  const whatsappLink = `https://wa.me/905069295781?text=${whatsappMessage}`;
 
   // Real Google reviews from customers
   const testimonials = [
@@ -372,9 +373,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container flex items-center justify-between h-20">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">BY</span>
-            </div>
+            <img src="/logo.png" alt="Baki Yılmaz Logo" className="h-12 w-auto" />
             <span className="font-bold text-lg hidden sm:inline">BAKI YILMAZ</span>
           </div>
           <div className="flex items-center gap-6 text-sm font-semibold">
@@ -382,7 +381,7 @@ export default function Home() {
             <a href="#hizmetler" className="hover:text-primary transition">HİZMETLER</a>
             <a href="#amac" className="hover:text-primary transition">AMAÇ</a>
             <a href="#kimler" className="hover:text-primary transition">KİMLER İÇİN</a>
-            <a href="#galeri" className="hover:text-primary transition">GALERİ</a>
+            <Link href="/galeri" className="hover:text-primary transition">GALERİ</Link>
             <a href="#sss" className="hover:text-primary transition">SSS</a>
             <a href="#iletisim" className="hover:text-primary transition">İLETİŞİM</a>
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 ml-4">
@@ -411,8 +410,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 pt-20">
-          <div className="mb-6 inline-block border-2 border-primary px-4 py-2">
-            <span className="text-primary font-bold tracking-wider">B.Y. FIGHT CLUB ACADEMY</span>
+          <img src="/logo.png" alt="Baki Yılmaz Logo" className="h-72 w-auto mx-auto mb-6" />
+          <div className="mb-6">
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 py-3 px-8 text-lg font-bold pointer-events-none">
+              B.Y. FIGHT CLUB ACADEMY
+            </Button>
           </div>
           <h1 className="text-6xl md:text-7xl font-black mb-6 leading-tight tracking-tighter">
             GÜVEN<br />
@@ -422,11 +424,11 @@ export default function Home() {
           <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
             29 yıllık spor tecrübesi ve milli sporcu ile boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir özel ders ve grup dersi.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button onClick={scrollToContact} className="bg-primary text-primary-foreground hover:bg-primary/90 py-3 px-8 text-lg font-bold">
+          <div className="flex flex-col gap-4 justify-center max-w-xs mx-auto">
+            <Button onClick={scrollToContact} className="bg-primary text-primary-foreground hover:bg-primary/90 py-3 px-8 text-lg font-bold w-full">
               Hemen iletişime geç
             </Button>
-            <a href={whatsappLink}>
+            <a href={whatsappLink} className="w-full">
               <Button className="bg-transparent border-2 border-primary text-primary hover:bg-primary/10 py-3 px-8 text-lg font-bold w-full">
                 Fiyat bilgisi al
               </Button>
@@ -438,29 +440,21 @@ export default function Home() {
       {/* About Section */}
       <section id="hakkimda" className="py-20 bg-background">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12">HAKKIMDA</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
+          <h2 className="text-5xl font-black mb-12 text-center">HAKKIMDA</h2>
+          <div className="grid md:grid-cols-2 gap-12 items-stretch">
+            <div className="flex flex-col justify-between py-4">
+              <p className="text-2xl text-foreground leading-loose">
                 29 yıllık spor tecrübesi ve milli sporcu ile; boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir, hedef odaklı özel dersler veriyorum.
               </p>
-              <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-2xl text-foreground leading-loose">
                 Disiplinli ve sonuç odaklı çalışma sistemiyle; kilo verme, kondisyon geliştirme, güç ve dayanıklılık artırma konularında profesyonel destek sağlıyorum.
               </p>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-2xl text-foreground leading-loose">
                 Sporun yalnızca fiziksel değil, karakter gelişimi açısından da güçlü bir araç olduğuna inanıyorum.
               </p>
             </div>
-            <div className="space-y-4">
-              <div className="bg-card p-6 border-2 border-border">
-                <h3 className="font-bold text-lg mb-2">Tecrübe ve Altyapı</h3>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex gap-2"><Check className="w-5 h-5 text-primary flex-shrink-0" /> 29 yıllık spor tecrübesi</li>
-                  <li className="flex gap-2"><Check className="w-5 h-5 text-primary flex-shrink-0" /> Milli sporcu</li>
-                  <li className="flex gap-2"><Check className="w-5 h-5 text-primary flex-shrink-0" /> Disiplinli ve sistemli antrenman yaklaşımı</li>
-                  <li className="flex gap-2"><Check className="w-5 h-5 text-primary flex-shrink-0" /> Hedef ve sonuç odaklı çalışma modeli</li>
-                </ul>
-              </div>
+            <div className="flex items-center justify-center">
+              <img src="/by.png" alt="Baki Yılmaz" className="w-full max-w-md h-auto rounded-2xl shadow-2xl shadow-primary/20" />
             </div>
           </div>
         </div>
@@ -469,20 +463,20 @@ export default function Home() {
       {/* Services Section */}
       <section id="hizmetler" className="py-20 bg-card">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12">ÖZELLİKLİ DERS ALANLARI</h2>
+          <h2 className="text-5xl font-black mb-12 text-center">ÖZELLİKLİ DERS ALANLARI</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {services.map((service, idx) => {
               const images = [
-                'https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/GQjWJuFVwwdEmHqL.jpg',
-                'https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/xjNVvyFRYMovepuU.jpg',
-                'https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/ifGWsJdGuGEAAoCb.jpg',
-                'https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/QBqVqYGduUvuuKNK.jpg',
-                'https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/GQjWJuFVwwdEmHqL.jpg',
-                'https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/xjNVvyFRYMovepuU.jpg',
+                'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=800&q=80',
+                'https://images.unsplash.com/photo-1552072092-7f9b8d63efcb?w=800&q=80',
+                'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80',
+                'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80',
+                'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80',
+                'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80',
               ];
               return (
                 <div key={service.title} className="bg-background p-8 border-2 border-border hover:border-primary transition">
-                  <img src={images[idx % images.length]} alt={service.title} className="w-full h-40 object-cover mb-4 rounded" />
+                  <img src={images[idx]} alt={service.title} className="w-full h-40 object-cover mb-4" />
                   <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
                   <p className="text-muted-foreground">{service.description}</p>
                 </div>
@@ -495,7 +489,7 @@ export default function Home() {
       {/* Objectives Section */}
       <section id="amac" className="py-20 bg-background">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12">AMAÇ NET</h2>
+          <h2 className="text-5xl font-black mb-12 text-center">AMAÇ NET</h2>
           <div className="grid md:grid-cols-4 gap-4">
             {objectives.map((obj) => (
               <div key={obj} className="bg-card p-6 border-2 border-border text-center">
@@ -509,10 +503,10 @@ export default function Home() {
       {/* Target Audience Section */}
       <section id="kimler" className="py-20 bg-card">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12">KİMLER İÇİN?</h2>
-          <div className="space-y-4">
+          <h2 className="text-5xl font-black mb-12 text-center">KİMLER İÇİN?</h2>
+          <div className="space-y-4 max-w-3xl mx-auto">
             {targetAudience.map((audience) => (
-              <div key={audience} className="bg-background p-6 border-l-4 border-primary">
+              <div key={audience} className="bg-background p-6 border-x-4 border-primary text-center">
                 <p className="text-lg">{audience}</p>
               </div>
             ))}
@@ -523,7 +517,7 @@ export default function Home() {
       {/* Character Section */}
       <section className="py-20 bg-background">
         <div className="container animate-on-scroll">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-center">
             <h3 className="text-3xl font-bold mb-6">Burada sadece kilo verilmez.</h3>
             <p className="text-xl text-muted-foreground mb-4">Burada kondisyon inşa edilir, karakter şekillenir, irade güçlenir.</p>
             <p className="text-xl text-muted-foreground mb-4">Bahane değil sonuç isteyenler için.</p>
@@ -535,125 +529,16 @@ export default function Home() {
       {/* Gallery Section */}
       <section id="galeri" className="py-20 bg-card">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12">GALERİ</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_0394.jpg" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_0494.JPG" alt="Sporcular" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_3006.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_7064.JPG" alt="Yarışma" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_7075.JPG" alt="Ödül Töreni" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8379.JPG" alt="Sporcu ve Hoca" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8380.JPG" alt="Salon" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8381.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8382.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8383.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8384.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8385.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8387.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8388.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8389.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8390.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8391.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8392.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8393.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8394.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8395.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8396.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8397.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8398.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8399.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8400.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8401.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8402.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8403.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8405.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8406.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8407.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8408.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8409.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8410.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8411.JPG" alt="Antrenman" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8412.JPG" alt="Sporcu" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8744.jpg" alt="Birebir Özel Kurslar" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
-            <div className="aspect-square overflow-hidden border-2 border-border hover:border-primary transition cursor-pointer group">
-              <img src="/gallery/IMG_8745.jpg" alt="Çocuklar için Kickboks" className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-            </div>
+          <h2 className="text-5xl font-black mb-8 text-center">GALERİ</h2>
+          <p className="text-lg text-muted-foreground mb-8 mx-auto text-center whitespace-nowrap">
+            Antrenmanlardan, yarışmalardan ve salonumuzdan kareleri incelemek için galeriye göz atın.
+          </p>
+          <div className="flex justify-center">
+            <Link href="/galeri">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 py-3 px-8 text-lg font-bold">
+                Galeriyi Görüntüle
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -661,16 +546,16 @@ export default function Home() {
       {/* Reviews Section */}
       <section className="py-20 bg-card">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12">MÜŞTERİ YORUMLARI</h2>
-          <Carousel items={testimonialItems} />
+          <h2 className="text-5xl font-black mb-12 text-center">MÜŞTERİ YORUMLARI</h2>
+          <Carousel items={testimonialItems} itemsPerPage={5} />
         </div>
       </section>
 
       {/* FAQ Section */}
       <section id="sss" className="py-20 bg-background">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12">SIKÇA SORULAN SORULAR</h2>
-          <div className="space-y-4 max-w-3xl">
+          <h2 className="text-5xl font-black mb-12 text-center">SIKÇA SORULAN SORULAR</h2>
+          <div className="space-y-4 max-w-3xl mx-auto">
             <details className="bg-card p-6 border-2 border-border group cursor-pointer">
               <summary className="font-bold text-lg flex justify-between items-center">
                 Antrenmanlar nasıl geçer?
@@ -738,34 +623,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick Info Form Section */}
-      <section className="py-20 bg-card">
-        <div className="container animate-on-scroll max-w-2xl">
-          <h2 className="text-4xl font-black mb-8">BİLGİ VE FIYAT ALMAK İÇİN</h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Bilgi ve fiyat almak için iletişim bilgilerinizi aşağıya bırakabilirsiniz veya WhatsApp üzerinden bize ulaşabilirsiniz.
-          </p>
-          <form className="space-y-4">
-            <input type="text" placeholder="Ad Soyad" className="w-full bg-background border-2 border-border p-4 text-foreground" />
-            <input type="tel" placeholder="Telefon" className="w-full bg-background border-2 border-border p-4 text-foreground" />
-            <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3 text-lg font-bold">
-              BİLGİ AL
-            </Button>
-          </form>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section id="iletisim" className="py-20 bg-background">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12">HEMEN BAŞLAYALIM</h2>
+          <h2 className="text-5xl font-black mb-12 text-center">HEMEN BAŞLAYALIM</h2>
           
           <div className="grid md:grid-cols-2 gap-12 mb-12">
             {/* WhatsApp */}
-            <div className="bg-card p-8 border-2 border-border">
+            <div className="bg-card p-8 border-2 border-border flex flex-col">
               <h3 className="text-2xl font-bold mb-4">WhatsApp</h3>
               <p className="text-muted-foreground mb-6">Hızlı bilgi almak için WhatsApp'tan yazabilirsiniz.</p>
-              <a href={whatsappLink}>
+              <a href={whatsappLink} className="mt-auto">
                 <Button className="bg-green-600 text-white hover:bg-green-700 w-full py-3 text-lg font-bold">
                   WHATSAPP'TAN YAZ
                 </Button>
@@ -773,42 +641,31 @@ export default function Home() {
             </div>
 
             {/* Location */}
-            <div className="bg-card p-8 border-2 border-border">
+            <div className="bg-card p-8 border-2 border-border flex flex-col">
               <h3 className="text-2xl font-bold mb-4">Konum</h3>
               <p className="text-muted-foreground mb-2">B.Y. Fight Club Academy</p>
-              <p className="text-muted-foreground mb-6">Ataşehir, İstanbul</p>
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full py-3 text-lg font-bold">
-                YOL TARİFİ AL
-              </Button>
+              <p className="text-muted-foreground mb-6">Küçükbakkalköy, 34750 Ataşehir/İstanbul, Türkiye</p>
+              <a href="https://maps.app.goo.gl/PMRwNXYQ32T9GJ6d9" target="_blank" rel="noopener noreferrer" className="mt-auto">
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full py-3 text-lg font-bold">
+                  YOL TARİFİ AL
+                </Button>
+              </a>
             </div>
           </div>
 
           {/* Social Media Icons */}
-          <div className="bg-card p-12 border-2 border-border">
-            <h3 className="text-2xl font-bold mb-8">SOSYAL MEDYA</h3>
+          <div className="bg-card p-12 border-2 border-border max-w-2xl mx-auto">
             <div className="flex gap-6 justify-center">
               <a href="https://instagram.com/baki_ylmaz" target="_blank" rel="noopener noreferrer" className="w-16 h-16 bg-background border-2 border-border hover:border-primary transition flex items-center justify-center rounded">
                 <Instagram className="w-8 h-8" />
               </a>
-              <a href="https://tiktok.com/@bakiyilmazfightclub" target="_blank" rel="noopener noreferrer" className="w-16 h-16 bg-background border-2 border-border hover:border-primary transition flex items-center justify-center rounded">
-                <TrendingUp className="w-8 h-8" />
-              </a>
-              <a href="https://youtube.com/@bakiylmaz6484" target="_blank" rel="noopener noreferrer" className="w-16 h-16 bg-background border-2 border-border hover:border-primary transition flex items-center justify-center rounded">
-                <Youtube className="w-8 h-8" />
-              </a>
-              <a href="tel:+905XX5XXXXXX" className="w-16 h-16 bg-background border-2 border-border hover:border-primary transition flex items-center justify-center rounded">
+              <a href="tel:+905069295781" className="w-16 h-16 bg-background border-2 border-border hover:border-primary transition flex items-center justify-center rounded">
                 <Phone className="w-8 h-8" />
               </a>
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="w-16 h-16 bg-background border-2 border-border hover:border-primary transition flex items-center justify-center rounded">
+              <a href="https://maps.app.goo.gl/PMRwNXYQ32T9GJ6d9" target="_blank" rel="noopener noreferrer" className="w-16 h-16 bg-background border-2 border-border hover:border-primary transition flex items-center justify-center rounded">
                 <MapPin className="w-8 h-8" />
               </a>
             </div>
-            <p className="text-center text-muted-foreground mt-8">
-              Disiplinli antrenman, net hedefler ve gerçek sonuçlar için doğru yerdesiniz.
-            </p>
-            <p className="text-center text-muted-foreground mt-2">
-              İlk adımı atın, gerisini birlikte planlayalım.
-            </p>
           </div>
         </div>
       </section>
