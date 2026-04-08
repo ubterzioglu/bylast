@@ -372,7 +372,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container flex items-center justify-between h-20">
@@ -689,7 +689,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-5xl font-black mb-8 text-center">
             GALERİ
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 mx-auto text-center whitespace-nowrap">
+          <p className="text-lg text-muted-foreground mb-8 mx-auto text-center">
             Antrenmanlardan, yarışmalardan ve salonumuzdan kareleri incelemek
             için galeriye göz atın.
           </p>
