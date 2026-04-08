@@ -65,7 +65,7 @@ export default function Gallery() {
     { src: "/gallery/IMG_8410.JPG", alt: "Sporcu" },
     { src: "/gallery/IMG_8411.JPG", alt: "Antrenman" },
     { src: "/gallery/IMG_8412.JPG", alt: "Sporcu" },
-    { src: "/gallery/IMG_8744.jpg", alt: "Birebir Özel Kurslar" },
+    { src: "/gallery/IMG_8744.jpg", alt: "Birebir Özel Dersler" },
     { src: "/gallery/IMG_8745.jpg", alt: "Çocuklar için Kickboks" },
   ];
 
@@ -77,7 +77,7 @@ export default function Gallery() {
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer">
               <img src="/logo.png" alt="Baki Yılmaz Logo" className="h-12 w-auto" />
-              <span className="font-bold text-lg hidden sm:inline">BAKI YILMAZ</span>
+              <span className="font-bold text-lg hidden sm:inline">BAKİ YILMAZ</span>
             </div>
           </Link>
           <Link href="/">

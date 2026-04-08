@@ -366,7 +366,7 @@ export default function Home() {
   const targetAudience = [
     "Kilo vermek isteyenler",
     "Kondisyonunu artırmak isteyenler",
-    "Sporla disiplin kazanmak isteyen herkes için",
+    "Sporla disiplin kazanmak isteyenler",
     "Güç ve dayanıklılığını geliştirmek isteyenler",
     "Profesyonel antrenman sistemi arayanlar",
   ];
@@ -383,7 +383,7 @@ export default function Home() {
               className="h-9 md:h-12 w-auto shrink-0"
             />
             <span className="font-bold text-base sm:text-lg leading-none truncate">
-              BAKI YILMAZ
+              BAKİ YILMAZ
             </span>
           </div>
 
@@ -421,7 +421,7 @@ export default function Home() {
           <button
             className="lg:hidden shrink-0 inline-flex h-11 w-11 items-center justify-center rounded border border-border bg-card/80 text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label="Menüyü aç veya kapat"
           >
             {isMobileMenuOpen ? (
               <X className="w-5 h-5" />
@@ -536,9 +536,9 @@ export default function Home() {
             TECRÜBE
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            29 yıllık spor tecrübesi ve milli sporcu ile boks, kickboks,
-            fonksiyonel antrenman ve fitness alanlarında birebir özel ders ve
-            grup dersi.
+            29 yıllık spor tecrübesi ve milli sporcu geçmişiyle; boks,
+            kickboks, fonksiyonel antrenman ve fitness alanlarında birebir
+            özel dersler ve grup dersleri veriyorum.
           </p>
           <div className="flex flex-col gap-4 justify-center max-w-xs mx-auto">
             <Button
@@ -565,9 +565,9 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-stretch">
             <div className="flex flex-col justify-between py-4">
               <p className="text-lg md:text-2xl text-foreground leading-relaxed md:leading-loose mb-4 md:mb-0">
-                29 yıllık spor tecrübesi ve milli sporcu ile; boks, kickboks,
-                fonksiyonel antrenman ve fitness alanlarında birebir, hedef
-                odaklı özel dersler veriyorum.
+                29 yıllık spor tecrübem ve milli sporcu geçmişimle; boks,
+                kickboks, fonksiyonel antrenman ve fitness alanlarında
+                birebir, hedef odaklı özel dersler veriyorum.
               </p>
               <p className="text-lg md:text-2xl text-foreground leading-relaxed md:leading-loose mb-4 md:mb-0">
                 Disiplinli ve sonuç odaklı çalışma sistemiyle; kilo verme,
@@ -727,7 +727,7 @@ export default function Home() {
               </summary>
               <p className="text-muted-foreground mt-4">
                 Antrenmanlar kişiye özel planlanır. Teknik boks eğitimi,
-                kondisyon çalışmaları, cardio ve fonksiyonel antrenmanlar
+                kondisyon çalışmaları, kardiyo ve fonksiyonel antrenmanlar
                 birlikte uygulanır.
               </p>
             </details>
@@ -783,7 +783,7 @@ export default function Home() {
               </summary>
               <p className="text-muted-foreground mt-4">
                 Evet. Kadın öğrenciler için özel program uygulanır. Boks aynı
-                zamanda güçlü bir cardio ve sıkılaşma antrenmanıdır.
+                zamanda güçlü bir kardiyo ve sıkılaşma antrenmanıdır.
               </p>
             </details>
 
