@@ -211,6 +211,7 @@ Design Philosophy: Brutalism + Martial Arts Aesthetic
   /* Smooth scroll */
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 }
 
@@ -218,4 +219,13 @@ Design Philosophy: Brutalism + Martial Arts Aesthetic
   .text-balance {
     text-wrap: balance;
   }
+  
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Tap Highlight Color */
+button, a, input, select, textarea {
+  -webkit-tap-highlight-color: transparent;
 }

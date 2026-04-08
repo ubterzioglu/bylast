@@ -92,7 +92,7 @@ export default function Gallery() {
       {/* Gallery Section */}
       <section className="pt-32 pb-20 bg-card">
         <div className="container animate-on-scroll">
-          <h1 className="text-5xl font-black mb-12">GALERİ</h1>
+          <h1 className="text-3xl md:text-5xl font-black mb-12">GALERİ</h1>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {galleryImages.map((img, idx) => (
               <div
@@ -112,16 +112,16 @@ export default function Gallery() {
 
       {/* Navigation Buttons */}
       <section className="bg-card py-12 border-t border-border">
-        <div className="container flex justify-center gap-4">
+        <div className="container flex flex-col sm:flex-row justify-center gap-4">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2 bg-background border-2 border-border hover:border-primary px-6 py-3 transition"
+            className="w-full sm:w-auto flex justify-center items-center gap-2 bg-background border-2 border-border hover:border-primary px-6 py-3 transition"
           >
             <ChevronUp className="w-5 h-5" />
             Yukarı Çık
           </button>
           <Link href="/">
-            <button className="flex items-center gap-2 bg-background border-2 border-border hover:border-primary px-6 py-3 transition">
+            <button className="w-full sm:w-auto flex justify-center items-center gap-2 bg-background border-2 border-border hover:border-primary px-6 py-3 transition">
               <Home className="w-5 h-5" />
               Ana Sayfaya Dön
             </button>

@@ -8,7 +8,7 @@ Design Philosophy: Brutalism + Martial Arts Aesthetic
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { MapPin, Instagram, Phone, Star } from "lucide-react";
+import { MapPin, Instagram, Phone, Star, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Carousel from "@/components/Carousel";
 import { Link } from "wouter";
@@ -16,6 +16,7 @@ import { Link } from "wouter";
 export default function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [activeTab, setActiveTab] = useState("hakkimda");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -373,10 +374,12 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container flex items-center justify-between h-20">
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="Baki Yılmaz Logo" className="h-12 w-auto" />
+            <img src="/logo.png" alt="Baki Yılmaz Logo" className="h-10 md:h-12 w-auto" />
             <span className="font-bold text-lg hidden sm:inline">BAKI YILMAZ</span>
           </div>
-          <div className="flex items-center gap-6 text-sm font-semibold">
+          
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex items-center gap-6 text-sm font-semibold">
             <a href="#hakkimda" className="hover:text-primary transition">HAKKIMDA</a>
             <a href="#hizmetler" className="hover:text-primary transition">HİZMETLER</a>
             <a href="#amac" className="hover:text-primary transition">AMAÇ</a>
@@ -390,7 +393,34 @@ export default function Home() {
               </Button>
             </a>
           </div>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="lg:hidden p-2 text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-20 left-0 w-full bg-background border-b border-border p-4 flex flex-col gap-4 shadow-xl">
+            <a href="#hakkimda" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition py-2">HAKKIMDA</a>
+            <a href="#hizmetler" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition py-2">HİZMETLER</a>
+            <a href="#amac" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition py-2">AMAÇ</a>
+            <a href="#kimler" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition py-2">KİMLER İÇİN</a>
+            <Link href="/galeri" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition py-2">GALERİ</Link>
+            <a href="#sss" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition py-2">SSS</a>
+            <a href="#iletisim" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition py-2">İLETİŞİM</a>
+            <a href={whatsappLink} onClick={() => setIsMobileMenuOpen(false)} className="w-full mt-2">
+              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                Fiyat bilgisi al
+              </Button>
+            </a>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -406,19 +436,21 @@ export default function Home() {
           autoPlay
           muted
           loop
+          playsInline
+          poster="/gallery/IMG_8380.JPG"
           className="absolute inset-0 w-full h-full object-cover"
           src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663350946171/ZtxZoIfEuaiQfjAz.mp4"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 pt-20">
-          <img src="/logo.png" alt="Baki Yılmaz Logo" className="h-72 w-auto mx-auto mb-6" />
+          <img src="/logo.png" alt="Baki Yılmaz Logo" className="h-40 md:h-72 w-auto mx-auto mb-6" />
           <div className="mb-6">
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 py-3 px-8 text-lg font-bold pointer-events-none">
               B.Y. FIGHT CLUB ACADEMY
             </Button>
           </div>
-          <h1 className="text-6xl md:text-7xl font-black mb-6 leading-tight tracking-tighter">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight tracking-tighter">
             GÜVEN<br />
             DİSİPLİN<br />
             TECRÜBE
@@ -442,16 +474,16 @@ export default function Home() {
       {/* About Section */}
       <section id="hakkimda" className="py-20 bg-background">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12 text-center">HAKKIMDA</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-12 text-center">HAKKIMDA</h2>
           <div className="grid md:grid-cols-2 gap-12 items-stretch">
             <div className="flex flex-col justify-between py-4">
-              <p className="text-2xl text-foreground leading-loose">
+              <p className="text-lg md:text-2xl text-foreground leading-relaxed md:leading-loose mb-4 md:mb-0">
                 29 yıllık spor tecrübesi ve milli sporcu ile; boks, kickboks, fonksiyonel antrenman ve fitness alanlarında birebir, hedef odaklı özel dersler veriyorum.
               </p>
-              <p className="text-2xl text-foreground leading-loose">
+              <p className="text-lg md:text-2xl text-foreground leading-relaxed md:leading-loose mb-4 md:mb-0">
                 Disiplinli ve sonuç odaklı çalışma sistemiyle; kilo verme, kondisyon geliştirme, güç ve dayanıklılık artırma konularında profesyonel destek sağlıyorum.
               </p>
-              <p className="text-2xl text-foreground leading-loose">
+              <p className="text-lg md:text-2xl text-foreground leading-relaxed md:leading-loose">
                 Sporun yalnızca fiziksel değil, karakter gelişimi açısından da güçlü bir araç olduğuna inanıyorum.
               </p>
             </div>
@@ -465,7 +497,7 @@ export default function Home() {
       {/* Services Section */}
       <section id="hizmetler" className="py-20 bg-card">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12 text-center">ÖZEL VE GRUP DERS BRANŞLARI</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-12 text-center">ÖZEL VE GRUP DERS BRANŞLARI</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {services.map((service, idx) => {
               const images = [
@@ -491,7 +523,7 @@ export default function Home() {
       {/* Objectives Section */}
       <section id="amac" className="py-20 bg-background">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12 text-center">AMAÇ NET</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-12 text-center">AMAÇ NET</h2>
           <div className="grid md:grid-cols-4 gap-4">
             {objectives.map((obj) => (
               <div key={obj} className="bg-card p-6 border-2 border-border text-center">
@@ -505,7 +537,7 @@ export default function Home() {
       {/* Target Audience Section */}
       <section id="kimler" className="py-20 bg-card">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12 text-center">KİMLER İÇİN?</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-12 text-center">KİMLER İÇİN?</h2>
           <div className="space-y-4 max-w-3xl mx-auto">
             {targetAudience.map((audience) => (
               <div key={audience} className="bg-background p-6 border-x-4 border-primary text-center">
@@ -531,7 +563,7 @@ export default function Home() {
       {/* Gallery Section */}
       <section id="galeri" className="py-20 bg-card">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-8 text-center">GALERİ</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-8 text-center">GALERİ</h2>
           <p className="text-lg text-muted-foreground mb-8 mx-auto text-center whitespace-nowrap">
             Antrenmanlardan, yarışmalardan ve salonumuzdan kareleri incelemek için galeriye göz atın.
           </p>
@@ -548,7 +580,7 @@ export default function Home() {
       {/* Reviews Section */}
       <section className="py-20 bg-card">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12 text-center">MÜŞTERİ YORUMLARI</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-12 text-center">MÜŞTERİ YORUMLARI</h2>
           <Carousel items={testimonialItems} itemsPerPage={5} />
         </div>
       </section>
@@ -556,10 +588,10 @@ export default function Home() {
       {/* FAQ Section */}
       <section id="sss" className="py-20 bg-background">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12 text-center">SIKÇA SORULAN SORULAR</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-12 text-center">SIKÇA SORULAN SORULAR</h2>
           <div className="space-y-4 max-w-3xl mx-auto">
             <details className="bg-card p-6 border-2 border-border group cursor-pointer">
-              <summary className="font-bold text-lg flex justify-between items-center">
+              <summary className="font-bold text-lg flex justify-between items-center min-h-[44px]">
                 Antrenmanlar nasıl geçer?
                 <span className="group-open:rotate-180 transition">▼</span>
               </summary>
@@ -567,7 +599,7 @@ export default function Home() {
             </details>
 
             <details className="bg-card p-6 border-2 border-border group cursor-pointer">
-              <summary className="font-bold text-lg flex justify-between items-center">
+              <summary className="font-bold text-lg flex justify-between items-center min-h-[44px]">
                 Dersler her seviyeye uygun mu?
                 <span className="group-open:rotate-180 transition">▼</span>
               </summary>
@@ -575,7 +607,7 @@ export default function Home() {
             </details>
 
             <details className="bg-card p-6 border-2 border-border group cursor-pointer">
-              <summary className="font-bold text-lg flex justify-between items-center">
+              <summary className="font-bold text-lg flex justify-between items-center min-h-[44px]">
                 Beslenme programı veriliyor mu?
                 <span className="group-open:rotate-180 transition">▼</span>
               </summary>
@@ -583,7 +615,7 @@ export default function Home() {
             </details>
 
             <details className="bg-card p-6 border-2 border-border group cursor-pointer">
-              <summary className="font-bold text-lg flex justify-between items-center">
+              <summary className="font-bold text-lg flex justify-between items-center min-h-[44px]">
                 Yarışmalara hazırlanabilir miyim?
                 <span className="group-open:rotate-180 transition">▼</span>
               </summary>
@@ -591,7 +623,7 @@ export default function Home() {
             </details>
 
             <details className="bg-card p-6 border-2 border-border group cursor-pointer">
-              <summary className="font-bold text-lg flex justify-between items-center">
+              <summary className="font-bold text-lg flex justify-between items-center min-h-[44px]">
                 Hangi yaş aralığı kabul ediliyor?
                 <span className="group-open:rotate-180 transition">▼</span>
               </summary>
@@ -599,7 +631,7 @@ export default function Home() {
             </details>
 
             <details className="bg-card p-6 border-2 border-border group cursor-pointer">
-              <summary className="font-bold text-lg flex justify-between items-center">
+              <summary className="font-bold text-lg flex justify-between items-center min-h-[44px]">
                 Kadınlar için uygun mu?
                 <span className="group-open:rotate-180 transition">▼</span>
               </summary>
@@ -607,7 +639,7 @@ export default function Home() {
             </details>
 
             <details className="bg-card p-6 border-2 border-border group cursor-pointer">
-              <summary className="font-bold text-lg flex justify-between items-center">
+              <summary className="font-bold text-lg flex justify-between items-center min-h-[44px]">
                 Daha önce spor yapmadım, başlayabilir miyim?
                 <span className="group-open:rotate-180 transition">▼</span>
               </summary>
@@ -615,7 +647,7 @@ export default function Home() {
             </details>
 
             <details className="bg-card p-6 border-2 border-border group cursor-pointer">
-              <summary className="font-bold text-lg flex justify-between items-center">
+              <summary className="font-bold text-lg flex justify-between items-center min-h-[44px]">
                 Sakatlanma riski var mı?
                 <span className="group-open:rotate-180 transition">▼</span>
               </summary>
@@ -628,7 +660,7 @@ export default function Home() {
       {/* Contact Section */}
       <section id="iletisim" className="py-20 bg-background">
         <div className="container animate-on-scroll">
-          <h2 className="text-5xl font-black mb-12 text-center">HEMEN BAŞLAYALIM</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-12 text-center">HEMEN BAŞLAYALIM</h2>
           
           <div className="grid md:grid-cols-2 gap-12 mb-12">
             {/* WhatsApp */}
