@@ -373,9 +373,9 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container flex items-center justify-between h-20">
-          <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="Baki Yılmaz Logo" className="h-10 md:h-12 w-auto" />
-            <span className="font-bold text-lg hidden sm:inline">BAKI YILMAZ</span>
+          <div className="flex items-center gap-3 min-w-0">
+            <img src="/logo.png" alt="Baki Yılmaz Logo" className="h-9 md:h-12 w-auto shrink-0" />
+            <span className="font-bold text-base sm:text-lg leading-none truncate">BAKI YILMAZ</span>
           </div>
           
           {/* Desktop Menu */}
@@ -396,11 +396,11 @@ export default function Home() {
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="lg:hidden p-2 text-foreground"
+            className="lg:hidden ml-2 inline-flex h-11 w-11 items-center justify-center rounded border border-border bg-card/80 text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
