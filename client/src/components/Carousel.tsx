@@ -103,8 +103,8 @@ export default function Carousel({
         </Button>
       </div>
 
-      {/* Dots - Sayfa sayısı kadar */}
-      <div className="flex justify-center gap-2 mt-6 flex-wrap">
+      {/* Dots - Sayfa sayısı kadar (Mobilde gizli) */}
+      <div className="hidden md:flex justify-center gap-2 mt-6 flex-wrap">
         {Array.from({ length: totalPages }).map((_, index) => (
           <button
             key={index}
