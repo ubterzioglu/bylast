@@ -562,22 +562,22 @@ export default function Home() {
           <h2 className="text-3xl md:text-5xl font-black mb-12 text-center">
             HAKKIMDA
           </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-stretch">
-            <div className="flex flex-col justify-between py-4">
-              <p className="text-lg md:text-2xl text-foreground leading-relaxed md:leading-loose mb-4 md:mb-0">
+          <div className="grid md:grid-cols-2 gap-6 items-stretch">
+            <div className="flex h-full flex-col justify-between py-2">
+              <p className="text-base md:text-xl text-foreground leading-relaxed md:leading-relaxed mb-3 md:mb-0">
                 1997 yılında Kayseri'de boksa başladım. Spor hayatım boyunca
                 minikler, yıldızlar, gençler ve büyükler kategorilerinde Türkiye
                 şampiyonlukları ve dereceler elde ettim. Gösterdiğim başarılar
                 sayesinde milli takım seviyesine yükseldim.
               </p>
-              <p className="text-lg md:text-2xl text-foreground leading-relaxed md:leading-loose mb-4 md:mb-0">
+              <p className="text-base md:text-xl text-foreground leading-relaxed md:leading-relaxed mb-3 md:mb-0">
                 Askerlik görevimi Jandarma Gücü bünyesinde, Beden Eğitimi ve
                 Spor Okulu Komutanlığı'nda tamamladım. 2003-2007 yılları
                 arasında Selçuk Üniversitesi Beden Eğitimi ve Spor
                 Yüksekokulu'nda eğitim alarak beden eğitimi öğretmeni olarak
                 mezun oldum.
               </p>
-              <p className="text-lg md:text-2xl text-foreground leading-relaxed md:leading-loose mb-4 md:mb-0">
+              <p className="text-base md:text-xl text-foreground leading-relaxed md:leading-relaxed mb-3 md:mb-0">
                 Mezuniyetimin ardından devlet okullarında 12 yıl boyunca resmi
                 olarak beden eğitimi öğretmenliği yaptım. Bu süreçte Burhan
                 Felek Spor İl Müdürlüğü bünyesinde fahri boks antrenörlüğü
@@ -585,23 +585,23 @@ export default function Home() {
                 sağladım. Sporcularım çeşitli Türkiye şampiyonalarına katılmış
                 ve milli takıma yükselme başarısı göstermiştir.
               </p>
-              <p className="text-lg md:text-2xl text-foreground leading-relaxed md:leading-loose mb-4 md:mb-0">
+              <p className="text-base md:text-xl text-foreground leading-relaxed md:leading-relaxed mb-3 md:mb-0">
                 Günümüzde aktif olarak kendi salonumda özel dersler, grup
                 antrenmanları ve birebir çalışmalar gerçekleştirmekteyim. Boks
                 ve kickboks başta olmak üzere farklı seviyelere uygun antrenman
                 programları sunmaktayım.
               </p>
-              <p className="text-lg md:text-2xl text-foreground leading-relaxed md:leading-loose">
+              <p className="text-base md:text-xl text-foreground leading-relaxed md:leading-relaxed">
                 Her seviyeye uygun antrenman metotları, bilgi birikimi ve
                 tecrübemle, sporcularıma en iyi şekilde rehberlik eden, alanında
                 uzman bir antrenör olarak çalışmalarımı sürdürmekteyim.
               </p>
             </div>
-            <div className="flex items-center justify-center">
+            <div className="flex h-full items-stretch justify-center">
               <img
                 src="/by.png"
                 alt="Baki Yılmaz"
-                className="w-full max-w-md h-auto rounded-2xl shadow-2xl shadow-primary/20"
+                className="w-full max-w-lg h-full object-cover rounded-2xl shadow-2xl shadow-primary/20"
               />
             </div>
           </div>
